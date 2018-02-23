@@ -15,6 +15,14 @@ ActiveRecord::Schema.define(version: 20180223094450) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cooks", force: :cascade do |t|
+    t.integer "stars"
+    t.string "speciality"
+    t.string "work_city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "dishes", force: :cascade do |t|
     t.string "name"
     t.text "desription"
@@ -22,6 +30,25 @@ ActiveRecord::Schema.define(version: 20180223094450) do
     t.string "typeOfKithcen"
     t.integer "spicyness"
     t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+    t.string "city"
+    t.text "description"
+    t.boolean "private_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -40,28 +67,6 @@ ActiveRecord::Schema.define(version: 20180223094450) do
     t.string "interesting_city"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    
-  create_table "cooks", force: :cascade do |t|
-    t.integer "stars"
-    t.string "speciality"
-    t.string "work_city"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
-  create_table "ingredients", force: :cascade do |t|
-    t.string "name"
-    t.string "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-  
-  create_table "organizations", force: :cascade do |t|
-    t.string "name"
-    t.string "city"
-    t.text "description"
-    t.boolean "private_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 end
