@@ -1,0 +1,2 @@
+class CooksOrganization < ApplicationRecord
+end
