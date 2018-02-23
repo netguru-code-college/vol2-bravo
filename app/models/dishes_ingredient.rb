@@ -1,0 +1,2 @@
+class DishesIngredient < ApplicationRecord
+end
