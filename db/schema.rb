@@ -10,14 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< 9316b0a6ee893c7c0bdad01192e19e9b28bff7c8
-ActiveRecord::Schema.define(version: 20180223104649) do
-=======
-ActiveRecord::Schema.define(version: 20180223103228) do
->>>>>>> Add relations dish ingredient
+
+ActiveRecord::Schema.define(version: 20180223105756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "administrations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_administrations_on_organization_id"
+    t.index ["user_id"], name: "index_administrations_on_user_id"
+  end
 
   create_table "cooks", force: :cascade do |t|
     t.integer "stars"
@@ -54,6 +60,15 @@ ActiveRecord::Schema.define(version: 20180223103228) do
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "organisations_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_organisations_users_on_organization_id"
+    t.index ["user_id"], name: "index_organisations_users_on_user_id"
   end
 
   create_table "organizations", force: :cascade do |t|
