@@ -1,24 +1,8 @@
-# README
+# ŻurNow   :fork_and_knife:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Autors:
+* [Kasia](https://github.com/konikowska)
+* [Piotr](https://github.com/flissek)
+* [Jacek](https://github.com/Jacaa)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+--- work in progress ---
