@@ -14,3 +14,16 @@
  *= require_self
  */
  @import "bootstrap";
+
+// FORMS
+
+.form-container {
+  text-align: center;
+  background-color: #cfcece;
+  border-radius: 5px;
+  border-bottom: #6d6d6d 4px solid;
+  margin: 30px auto;
+  min-width: 350px;
+  padding: 20px 50px;
+  width: 40%;
+}

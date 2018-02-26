@@ -18,6 +18,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'rubocop',                 require: false
 gem 'draper'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug',                platforms: [:mri, :mingw, :x64_mingw]
