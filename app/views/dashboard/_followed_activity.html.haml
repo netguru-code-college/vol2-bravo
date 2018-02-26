@@ -1,3 +1,18 @@
-%ul.list-group
-  - @users.each do |user|
-    %li.list-group-item= user.email
+- @proposals_for_organization.each do |id, proposals|
+  %div.container
+    %h1=Organization.find_by(id: id).name
+    - proposals.each do |proposal|
+      %ul.list-group
+        %li.list-group-item
+          %span Cena:
+          =proposal.price
+        %li.list-group-item
+          %span Data zakończenia:
+          =proposal.expiration_date
+        %li.list-group-item
+          %span Ilość:
+          =proposal.quantity
+        %li.list-group-item
+          %span Danie:
+          =proposal.decorate.dish_name
+      %br
