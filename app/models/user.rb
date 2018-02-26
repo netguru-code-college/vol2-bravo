@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
+  has_one  :cook,          dependent: :destroy
+
   has_many :organizations, through: :administrations
-  has_many :organizations, through: :relationships
+  has_many :following,     through: :relationships, source: :organization
+  
+  has_many :transactions
 end
