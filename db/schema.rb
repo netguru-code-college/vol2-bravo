@@ -45,14 +45,13 @@ ActiveRecord::Schema.define(version: 20180226124718) do
 
   create_table "dishes", force: :cascade do |t|
     t.string "name"
-    t.text "description"
-    t.string "type_of_kitchen"
+    t.text "desription"
+    t.integer "quantity"
+    t.string "typeOfKithcen"
     t.integer "spicyness"
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "cook_id"
-    t.index ["cook_id"], name: "index_dishes_on_cook_id"
   end
 
   create_table "dishes_ingredients", force: :cascade do |t|
@@ -90,6 +89,7 @@ ActiveRecord::Schema.define(version: 20180226124718) do
     t.bigint "organization_id"
     t.index ["dish_id"], name: "index_proposals_on_dish_id"
     t.index ["organization_id"], name: "index_proposals_on_organization_id"
+
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -131,6 +131,8 @@ ActiveRecord::Schema.define(version: 20180226124718) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.string "name"
+    t.string "last_name"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

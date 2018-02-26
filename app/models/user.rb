@@ -13,4 +13,7 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :organization
   
   has_many :transactions
+
+  validates :name, :last_name, :live_city, :interesting_city,
+            presence: true, allow_nil: true
 end
