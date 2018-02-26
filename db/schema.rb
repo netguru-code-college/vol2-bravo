@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226121349) do
+ActiveRecord::Schema.define(version: 20180226134926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,14 +45,13 @@ ActiveRecord::Schema.define(version: 20180226121349) do
 
   create_table "dishes", force: :cascade do |t|
     t.string "name"
-    t.text "description"
-    t.string "type_of_kitchen"
+    t.text "desription"
+    t.integer "quantity"
+    t.string "typeOfKithcen"
     t.integer "spicyness"
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "cook_id"
-    t.index ["cook_id"], name: "index_dishes_on_cook_id"
   end
 
   create_table "dishes_ingredients", force: :cascade do |t|
@@ -85,9 +84,6 @@ ActiveRecord::Schema.define(version: 20180226121349) do
     t.datetime "expiration_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "dish_id"
-    t.string "quantity"
-    t.index ["dish_id"], name: "index_proposals_on_dish_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -129,12 +125,12 @@ ActiveRecord::Schema.define(version: 20180226121349) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.string "name"
+    t.string "last_name"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "cooks", "users"
-  add_foreign_key "dishes", "cooks"
-  add_foreign_key "proposals", "dishes"
 end
