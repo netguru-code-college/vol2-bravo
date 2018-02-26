@@ -1,0 +1,17 @@
+- @proposals_for_organization.each do |id, proposals|
+  %div.container
+    %h1=Organization.find_by(id: id).name
+    - proposals.each do |proposal|
+      %div.card.proposals_card
+        %div.card-block
+          %ul.w-100.m-0.p-0
+            %li.proposals_card__time
+              %span.proposals_card__dish_details=proposal.decorate.dish_name
+              %span.proposals_card__dish_time
+                %i.ion-android-stopwatch
+                %span=proposal.expiration_date
+            %li.proposals_card__price
+              %span.proposals_card__label Ilość:
+              %span.mr-1=proposal.quantity
+              %span.proposals_card__label Cena:
+              %span.proposals_card__dish_price=proposal.price

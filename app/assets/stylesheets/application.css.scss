@@ -14,10 +14,14 @@
  *= require_self
  */
  @import "bootstrap";
+ @import "ionicons";
+ @import "variables";
  @import "dashboard";
 
 // FORMS
-
+body{
+  font-size: 14px;
+}
 .form-container {
   text-align: center;
   background-color: #cfcece;

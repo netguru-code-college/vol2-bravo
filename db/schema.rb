@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226124718) do
+ActiveRecord::Schema.define(version: 20180226154641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,15 +43,27 @@ ActiveRecord::Schema.define(version: 20180226124718) do
     t.index ["organization_id"], name: "index_cooks_organizations_on_organization_id"
   end
 
+  create_table "custom_orders", force: :cascade do |t|
+    t.integer "quantity"
+    t.datetime "receive_date"
+    t.bigint "user_id"
+    t.bigint "proposal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["proposal_id"], name: "index_custom_orders_on_proposal_id"
+    t.index ["user_id"], name: "index_custom_orders_on_user_id"
+  end
+
   create_table "dishes", force: :cascade do |t|
     t.string "name"
-    t.text "desription"
-    t.integer "quantity"
-    t.string "typeOfKithcen"
+    t.text "description"
+    t.string "type_of_kitchen"
     t.integer "spicyness"
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "cook_id"
+    t.index ["cook_id"], name: "index_dishes_on_cook_id"
   end
 
   create_table "dishes_ingredients", force: :cascade do |t|
@@ -98,17 +110,6 @@ ActiveRecord::Schema.define(version: 20180226124718) do
     t.datetime "updated_at", null: false
     t.index ["organization_id"], name: "index_relationships_on_organization_id"
     t.index ["user_id"], name: "index_relationships_on_user_id"
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.integer "quantity"
-    t.datetime "receive_date"
-    t.bigint "user_id"
-    t.bigint "proposal_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["proposal_id"], name: "index_transactions_on_proposal_id"
-    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

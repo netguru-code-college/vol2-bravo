@@ -1,5 +1,5 @@
 %div.row
-  %div.col-md-8
-    = render :partial => 'followed_activity'
-  %div.col-md-4
-    = render :partial => 'booked'
+  %div.col-md-7.proposals
+    = render 'following_activity'
+  %div.col-md-5.orders.p-0
+    = render 'orders', collection: @custom_orders, as: :order
