@@ -1,0 +1,24 @@
+.container-fluid.p-4
+  .row
+    .col-md-8
+      -# List of cook's proposals
+    .col-md-4
+      %span Profil kucharza:
+      %ul.list-group
+        %li.list-group-item
+          = @cook.user.name
+          = @cook.user.last_name
+        %li.list-group-item
+          Email:
+          = @cook.user.email
+        %li.list-group-item
+          Specjalność:
+          = @cook.speciality
+        %li.list-group-item
+          Miasto pracy:
+          = @cook.work_city
+        %li.list-group-item
+          Ocena:
+          = @cook.stars
+        
+      = link_to "Edytuj profil kucharza", edit_user_cook_path(@cook.user, @cook),class: "btn btn-dark"

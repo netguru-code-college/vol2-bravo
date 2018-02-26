@@ -1,6 +1,6 @@
 class CooksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user
+  before_action :set_user, only: [:new, :create]
   before_action :set_cook, only: [:show, :edit, :update, :destroy]
   before_action :is_cook_already?, only: [:new, :create]
 
@@ -14,7 +14,7 @@ class CooksController < ApplicationController
   def create
     @cook = Cook.new(cook_params)
     if @cook.save
-      redirect_to user_cook_path(@user, @cook), notice: "Witamy nowego kucharza!"
+      redirect_to user_cook_path(@cook.user, @cook), notice: "Witamy nowego kucharza!"
     else
       render "new"
     end
@@ -45,6 +45,6 @@ class CooksController < ApplicationController
 
     def is_cook_already?
       cook = @user.cook
-      redirect_to user_cook_path(@user, cook), notice: "Jesteś już kucharzem!" if cook
+      redirect_to user_cook_path(@user, cook) if cook
     end
 end
