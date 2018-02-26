@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226101422) do
+ActiveRecord::Schema.define(version: 20180226121349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,13 +45,14 @@ ActiveRecord::Schema.define(version: 20180226101422) do
 
   create_table "dishes", force: :cascade do |t|
     t.string "name"
-    t.text "desription"
-    t.integer "quantity"
-    t.string "typeOfKithcen"
+    t.text "description"
+    t.string "type_of_kitchen"
     t.integer "spicyness"
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "cook_id"
+    t.index ["cook_id"], name: "index_dishes_on_cook_id"
   end
 
   create_table "dishes_ingredients", force: :cascade do |t|
@@ -65,7 +66,7 @@ ActiveRecord::Schema.define(version: 20180226101422) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "kind"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -84,6 +85,9 @@ ActiveRecord::Schema.define(version: 20180226101422) do
     t.datetime "expiration_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "dish_id"
+    t.string "quantity"
+    t.index ["dish_id"], name: "index_proposals_on_dish_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -131,4 +135,6 @@ ActiveRecord::Schema.define(version: 20180226101422) do
   end
 
   add_foreign_key "cooks", "users"
+  add_foreign_key "dishes", "cooks"
+  add_foreign_key "proposals", "dishes"
 end
