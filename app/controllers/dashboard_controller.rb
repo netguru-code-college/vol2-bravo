@@ -1,13 +1,8 @@
 class DashboardController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   def index
-    @users = User.all
-    @following_organizations = current_user
-  end
-
-  def user_view
-  end
-
-  def cook_view
+    current_user = User.all.first
+    users_organization_ids = current_user.followings.map(&:id)
+    @proposals_for_organization = Proposal.all_for_organization(users_organization_ids).group_by(&:organization_id)
   end
 end
