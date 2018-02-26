@@ -1,0 +1,21 @@
+.form-container
+  %h2 Update your profile
+  = form_for(@user) do |f|
+    = render 'shared/error_messages', object: f.object
+    .field.form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+    .field.form-group
+      = f.label :last_name
+      = f.text_field :last_name, class: 'form-control'
+    .field.form-group
+      = f.label :live_city
+      = f.text_field :live_city, class: 'form-control'
+    .field.form-group
+      = f.label :interesting_city
+      = f.text_field :interesting_city, class: 'form-control'
+    .field.form-group
+      = f.submit "Save changes", class: "btn btn-dark"
+  
+  = link_to "Delete profile", @user, method: :delete, 
+  data: { confirm: "Are you sure?"}, class: "btn btn-danger"
