@@ -18,9 +18,14 @@ class User < ApplicationRecord
             presence: true, allow_nil: true
 
   def info_completed?
-    name.present? && 
-    last_name.present? && 
-    interesting_city.present? && 
+    name.present? &&
+    last_name.present? &&
+    interesting_city.present? &&
     live_city.present?
+  end
+
+  def is_cook?
+    return true if self.cook.present?
+    false
   end
 end

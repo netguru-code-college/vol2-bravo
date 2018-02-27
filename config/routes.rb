@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+
+  resources :cooks do
+    resources :dishes
+  end
 end
