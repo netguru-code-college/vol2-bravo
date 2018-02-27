@@ -1,2 +1,3 @@
-%div.container--user_view
-  = render :partial => 'user'
+.container--user_view
+  - if user_signed_in?
+    = render :partial => 'user'
