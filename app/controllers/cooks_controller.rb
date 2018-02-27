@@ -54,7 +54,6 @@ class CooksController < ApplicationController
     end
 
     def is_cook_already?
-      cook = @user.cook
-      redirect_to user_cook_path(@user, cook) if cook
+      redirect_to user_cook_path(@user, cook) if @user.is_cook?
     end
 end

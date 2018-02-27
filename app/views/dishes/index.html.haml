@@ -1,0 +1,7 @@
+-if @cook_dishes.present?
+  - @cook_dishes.each do |user_dish|
+    %ul
+      %li= user_dish.name
+      %li= user_dish.description
+      %li= user_dish.type_of_kitchen
+      %li= user_dish.spicyness
