@@ -21,8 +21,9 @@ class OrganizationsController < ApplicationController
   end
 
   def update
-    if @organization.update_attributes(user_params)
-      redirect_to edit_user_path(@organization), notice: "Organization updated!"
+    set_organization
+    if @organization.update_attributes(organization_params)
+      redirect_to edit_organization_path(@organization), notice: "Organization updated!"
     else
       render 'edit'
     end
