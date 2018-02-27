@@ -29,7 +29,8 @@ class OrganizationsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    set_organization
     @organization.destroy
     redirect_to new_user_registration_path, notice: "Organization deleted!"
   end
