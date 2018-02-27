@@ -1,14 +1,12 @@
 %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
   = link_to "ZurNow", "/", class: "navbar-brand"
-  %ul.navbar-nav
+  %ul.navbar-nav.ml-auto
     - if user_signed_in?
-      %li.nav-item= current_user.email
       %li.nav-item
-        = link_to "/", class: "nav-link" do
-          .fa.fa-user{title: 'User profile'}
+        = link_to edit_user_path(current_user), class: "nav-link" do
+          = current_user.email
       %li.nav-item
-        = link_to '/logout', class: "nav-link", method: :delete do
-          .fa.fa-sign-out{title: 'Logout'}
+        = link_to "Wyloguj", destroy_user_session_path, class: "nav-link", method: :delete
     - else
-      %li.nav-item= link_to 'Sign up', new_user_registration_path, class: "nav-link"
-      %li.nav-item= link_to 'Login', user_session_path, class: "nav-link"
+      %li.nav-item= link_to 'Zarejestruj się', new_user_registration_path, class: "nav-link"
+      %li.nav-item= link_to 'Logowanie', user_session_path, class: "nav-link"
