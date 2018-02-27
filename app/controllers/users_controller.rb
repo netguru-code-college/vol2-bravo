@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      redirect_to edit_user_path(@user), notice: "Profile updated!"
+      redirect_to root_path, notice: "Profil zaktualizowany!"
     else
       render 'edit'
     end
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to new_user_registration_path, notice: "Profile deleted!"
+    redirect_to new_user_registration_path, notice: "Profil został usunięty!"
   end
 
   private 
