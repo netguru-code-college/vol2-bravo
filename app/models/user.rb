@@ -16,4 +16,11 @@ class User < ApplicationRecord
 
   validates :name, :last_name, :live_city, :interesting_city,
             presence: true, allow_nil: true
+
+  def info_completed?
+    name.present? && 
+    last_name.present? && 
+    interesting_city.present? && 
+    live_city.present?
+  end
 end
