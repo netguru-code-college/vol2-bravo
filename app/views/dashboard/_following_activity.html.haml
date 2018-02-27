@@ -1,9 +1,11 @@
-- @proposals_for_organization.each do |id, proposals|
-  %div.container
-    %h1=Organization.find_by(id: id).name
-    - proposals.each do |proposal|
-      %div.card.proposals_card
-        %div.card-block
+- @followed_organizations.each do |organization|
+  .container
+    %h1 
+      Organizacja:
+      = organization.name
+    - organization.proposals.each do |proposal|
+      .card.proposals_card
+        .card-block
           %ul.w-100.m-0.p-0
             %li.proposals_card__time
               %span.proposals_card__dish_details=proposal.decorate.dish_name
