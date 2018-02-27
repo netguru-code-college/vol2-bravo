@@ -1,0 +1,16 @@
+.form-container
+  %h2 Edytuj profil kucharza
+  = form_for(@cook, url: { controller: 'cooks', action: 'update'}, html: { method: 'patch' } ) do |f|
+    = render 'shared/error_messages', object: f.object
+    .field.form-group
+      = f.label :speciality, "Specjalność"
+      = f.text_field :speciality, class: 'form-control'
+    .field.form-group
+      = f.label :work_city, "Miasto pracy"
+      = f.text_field :work_city, class: 'form-control'
+    .field.form-group
+      = f.submit "Zapisz zmiany", class: "btn btn-dark"
+
+  = form_for(@cook, url: { controller: 'cooks', action: 'destroy'}, html: { method: 'delete' } ) do |f|
+    .field.form-group
+      = f.submit "Usuń profil kucharza", class: "btn btn-danger", data: { confirm: "Na pewno? Wszystkie Twoje oferty i dania zostaną usunięte!"}
