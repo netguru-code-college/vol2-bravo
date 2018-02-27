@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   scope '/profile' do
     resources :users, only: [:edit, :update, :destroy] do
       resources :cooks, only: [:show, :new, :create, :edit, :update, :destroy]
-      resources :organizations, only: [:new, :create, :show, :edit, :update, :delete]
     end
+    resources :organizations, only: [:new, :create, :show, :edit, :update, :delete]
   end
 
   devise_for :users
