@@ -99,6 +99,8 @@ ActiveRecord::Schema.define(version: 20180228085723) do
     t.bigint "dish_id"
     t.string "quantity"
     t.bigint "organization_id"
+    t.bigint "cook_id"
+    t.index ["cook_id"], name: "index_proposals_on_cook_id"
     t.index ["dish_id"], name: "index_proposals_on_dish_id"
     t.index ["organization_id"], name: "index_proposals_on_organization_id"
   end
@@ -140,6 +142,7 @@ ActiveRecord::Schema.define(version: 20180228085723) do
 
   add_foreign_key "cooks", "users"
   add_foreign_key "dishes", "cooks"
+  add_foreign_key "proposals", "cooks"
   add_foreign_key "proposals", "dishes"
   add_foreign_key "proposals", "organizations"
 end
