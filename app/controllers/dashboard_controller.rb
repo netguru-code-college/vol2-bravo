@@ -4,5 +4,6 @@ class DashboardController < ApplicationController
     current_user = User.all.first
     users_organization_ids = current_user.followings.map(&:id)
     @proposals_for_organization = Proposal.all_for_organization(users_organization_ids).group_by(&:organization_id)
+    @custom_orders = current_user.custom_orders.take(10)
   end
 end

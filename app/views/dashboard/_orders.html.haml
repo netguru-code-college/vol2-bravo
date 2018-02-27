@@ -1,0 +1,11 @@
+%div.container_header
+  %span.latest_orders Ostatnie zamównienia:
+%div.container_orders
+  %ul.list-group
+    -@custom_orders.each do |order|
+      %li.list-group-item.mb-2
+        %span.m-1= Proposal.all.find_by(id: order.proposal_id).decorate.dish_name
+        %span.font-weight-bold Ilość:
+        %span.m-1= order.quantity
+        %span.font-weight-bold Data odbioru:
+        %span.m-1= order.receive_date

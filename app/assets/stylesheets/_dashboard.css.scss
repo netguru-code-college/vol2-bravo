@@ -1,2 +1,68 @@
-.list-group-item{
+@import "variables";
+.container--user_view {
+  border: 1px solid $light-gray;
+  padding: $tenPx * 4;
+}
+.proposals{
+  height: 100vh;
+  overflow: scroll;
+  padding: $tenPx * 2;
+
+  .proposals_card{
+    margin-bottom: $tenPx;
+    display: flex;
+    justify-content: center;
+    .card-block {
+      display: flex;
+      flex-direction: column;
+      padding: $tenPx;
+      ul {
+        li {
+          list-style: none;
+          &.proposals_card__time {
+            text-align: end;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .proposals_card__label {
+            font-weight: 600;
+          }
+          .proposals_card__dish_details {
+            font-size: $tenPx * 2;
+          }
+          .proposals_card__dish_time {
+            text-align: end;
+            color: red;
+          }
+          &.proposals_card__price{
+            color: gray;
+          }
+        }
+      }
+    }
+  }
+}
+.orders{
+  // padding-top: $tenPx * 5;
+  .container_orders{
+    border: 1px solid $light-gray;
+    padding: $tenPx;
+    height: 100vh;
+    overflow: scroll;
+  }
+}
+.container_header{
+  height: $tenPx * 7;
+  background-color: $main-yellow;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: $tenPx * 2;
+  border-bottom: 5px solid #0095ff;
+  span {
+    color: #312c15;
+  }
 }

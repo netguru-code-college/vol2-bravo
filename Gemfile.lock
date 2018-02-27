@@ -96,6 +96,8 @@ GEM
     faker (1.8.7)
       i18n (>= 0.7)
     ffi (1.9.22)
+    font-ionicons-rails (2.0.1.5)
+      railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     haml (5.0.4)
@@ -279,6 +281,7 @@ DEPENDENCIES
   draper
   factory_bot_rails (~> 4.0)
   faker
+  font-ionicons-rails
   haml
   haml-rails
   jquery-rails

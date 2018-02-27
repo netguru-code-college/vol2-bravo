@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  
+
   has_one  :cook, dependent: :destroy
 
   has_many :administrations
@@ -11,8 +11,8 @@ class User < ApplicationRecord
 
   has_many :relationships
   has_many :followings, through: :relationships, source: :organization
-  
-  has_many :transactions
+
+  has_many :custom_orders
 
   validates :name, :last_name, :live_city, :interesting_city,
             presence: true, allow_nil: true

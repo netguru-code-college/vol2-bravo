@@ -1,4 +1,4 @@
-class Transaction < ApplicationRecord
+class CustomOrder < ApplicationRecord
   belongs_to :user
   belongs_to :proposal
 end
