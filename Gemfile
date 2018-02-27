@@ -16,7 +16,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'haml'
 gem 'haml-rails'
-gem 'rubocop',                 require: false
+gem 'rubocop',                 '~> 0.52.1', require: false
 gem 'draper'
 gem "font-ionicons-rails"
 
