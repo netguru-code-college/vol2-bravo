@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_action :authenticate_user!
+
   def index
     current_user = User.all.first
     users_organization_ids = current_user.followings.map(&:id)
