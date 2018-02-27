@@ -7,14 +7,14 @@ default: &default
 
 development:
   <<: *default
-  database: vol2-bravo_development
+  database: vol2_bravo_development
 
 test:
   <<: *default
-  database: vol2-bravo_test
+  database: vol2_bravo_test
 
 production:
   <<: *default
-  database: vol2-bravo_production
-  username: vol2-bravo
+  database: vol2_bravo_production
+  username: vol2_bravo
   password: <%= ENV['VOL2-BRAVO_DATABASE_PASSWORD'] %>
