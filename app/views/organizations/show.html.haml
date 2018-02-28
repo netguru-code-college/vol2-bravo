@@ -1,10 +1,20 @@
+= @organization.cook
 
-Organization name:
-<br>
-= @organization.name
-<br> City:
-<br>
-= @organization.city
-<br> Description:
-<br>
-= @organization.description
+.container-fluid.p-4
+  .row
+    .col-md-8
+      -# List of cook's proposals
+    .col-md-4
+      %span Profil organizacji:
+      %ul.list-group
+        %li.list-group-item
+          = @organization.name
+        %li.list-group-item
+          Lokalizacja:
+          = @organization.city
+        %li.list-group-item
+          Opis:
+          = @organization.description
+        
+        
+      = link_to "Edytuj profil kucharza", edit_organization_path(@organization, @organization),class: "btn btn-dark"
