@@ -7,4 +7,31 @@
 * [Piotr](https://github.com/flissek)
 * [Jacek](https://github.com/Jacaa)
 
---- work in progress ---
+## How to start
+1. Clone:
+```bash
+$ git clone https://github.com/netguru-code-college/vol2-bravo.git
+```
+
+2. Enter directory:
+```bash
+$ cd vol2-bravo
+```
+
+3. Instal gems:
+```bash
+$ bundle
+```
+
+4. Create and seed database:
+```bash
+$ rails db:create
+$ rails db:seed
+```
+
+5. Run rails server:
+```bash
+$ rails s
+```
+
+Enjoy
