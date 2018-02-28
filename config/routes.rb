@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :cooks do
     resources :dishes
   end
+
+  resources :ingredients
 end
