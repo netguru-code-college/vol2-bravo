@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   root 'dashboard#index'
 
   scope '/profile' do
-    resources :users, only: [:edit, :update, :destroy] do
+    resources :users,   only: [:edit, :update, :destroy] do
       resources :cooks, only: [:show, :new, :create, :edit, :update, :destroy]
     end
     resources :organizations, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-      resources :proposals, only: [:new, :create, :show, :edit, :update, :destroy, :index]
+      resources :proposals,   only: [:new, :create, :show, :edit, :update, :destroy, :index]
     end
   end
 
@@ -19,6 +19,9 @@ Rails.application.routes.draw do
 
   resources :ingredients
 
-  resources :relationships, only: [:create, :destroy]
+  resources :relationships,       only: [:create, :destroy]
   resources :cooks_organizations, only: [:create, :destroy]
+
+  get  '/custom_orders/:proposal_id/new', to: 'custom_orders#new',    as: 'custom_order'
+  post '/custom_orders/:proposal_id',     to: 'custom_orders#create', as: 'custom_orders'
 end
