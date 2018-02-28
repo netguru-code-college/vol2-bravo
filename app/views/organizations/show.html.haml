@@ -1,7 +1,7 @@
 .container-fluid.p-4
   .row
     .col-md-8
-      -# List of organizations
+      = render 'organizations/follow_form', object: @organization if current_user
     .col-md-4
       %span Profil organizacji:
       %ul.list-group
@@ -17,4 +17,3 @@
         
         
       = link_to "Edytuj profil organizacji", edit_user_cook_path(@orgaznization, @organization),class: "btn btn-dark"
-

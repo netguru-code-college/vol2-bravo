@@ -28,4 +28,16 @@ class User < ApplicationRecord
     return true if cook.present?
     false
   end
+
+  def follow(organization)
+    followings << organization
+  end
+
+  def unfollow(organization)
+    followings.delete(organization)
+  end
+
+  def following?(organization)
+    followings.include?(organization)
+  end
 end

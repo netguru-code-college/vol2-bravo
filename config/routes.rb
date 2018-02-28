@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   end
 
   resources :ingredients
+
+  resources :relationships, only: [:create, :destroy]
 end
