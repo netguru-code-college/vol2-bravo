@@ -32,7 +32,7 @@ class OrganizationsController < ApplicationController
   def destroy
     set_organization
     @organization.destroy
-    redirect_to new_user_registration_path, notice: 'Organizacja uzunięta!'
+    redirect_to new_user_registration_path, notice: 'Organizacja usunięta!'
   end
 
   private
