@@ -14,6 +14,4 @@
         %li.list-group-item
           Opis:
           = @organization.description
-        
-        
-      = link_to "Edytuj profil organizacji", edit_user_cook_path(@orgaznization, @organization),class: "btn btn-dark"
+      = link_to "Edytuj profil organizacji", edit_user_cook_path(current_user, @organization), class: "btn btn-dark"
