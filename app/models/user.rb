@@ -24,7 +24,7 @@ class User < ApplicationRecord
       live_city.present?
   end
 
-  def is_cook?
+  def cook?
     return true if cook.present?
     false
   end

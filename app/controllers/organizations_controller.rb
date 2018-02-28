@@ -36,7 +36,7 @@ class OrganizationsController < ApplicationController
   end
 
   private
-  
+
   def organization_params
     params.require(:organization).permit(:name, :city, :description, :private_type)
   end

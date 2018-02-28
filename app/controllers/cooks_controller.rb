@@ -2,7 +2,7 @@ class CooksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:new, :create, :update]
   before_action :set_cook, only: [:show, :edit, :update, :destroy]
-  before_action :is_cook_already?, only: [:new, :create]
+  before_action :cook_already?, only: [:new, :create]
 
   def show
   end
@@ -53,7 +53,7 @@ class CooksController < ApplicationController
       @cook = Cook.find(params[:id])
     end
 
-    def is_cook_already?
-      redirect_to user_cook_path(@user, cook) if @user.is_cook?
+    def cook_already?
+      redirect_to user_cook_path(@user, cook) if @user.cook?
     end
 end
