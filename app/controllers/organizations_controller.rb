@@ -1,9 +1,9 @@
 class OrganizationsController < ApplicationController
   before_action :authenticate_user!
-  #before_action :set_organization
+  # before_action :set_organization
 
   def show
-    set_organization #@organization = Organization.find(params[:id])
+    set_organization # @organization = Organization.find(params[:id])
   end
 
   def new
@@ -23,7 +23,7 @@ class OrganizationsController < ApplicationController
   def update
     set_organization
     if @organization.update_attributes(organization_params)
-      redirect_to edit_organization_path(@organization), notice: "Organization updated!"
+      redirect_to edit_organization_path(@organization), notice: 'Organizacja zaktualizowana'
     else
       render 'edit'
     end
@@ -32,10 +32,11 @@ class OrganizationsController < ApplicationController
   def destroy
     set_organization
     @organization.destroy
-    redirect_to new_user_registration_path, notice: "Organization deleted!"
+    redirect_to new_user_registration_path, notice: 'Organizacja usunięta!'
   end
 
   private
+
   def organization_params
     params.require(:organization).permit(:name, :city, :description, :private_type)
   end

@@ -16,7 +16,6 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'haml'
 gem 'haml-rails'
-gem 'rubocop',                 require: false
 gem 'draper'
 gem "font-ionicons-rails"
 
@@ -30,6 +29,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'faker'
   gem 'dotenv-rails'
+  gem 'rubocop', '~> 0.52.1', require: false
 end
 
 group :development do

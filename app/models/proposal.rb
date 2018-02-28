@@ -3,5 +3,5 @@ class Proposal < ApplicationRecord
   belongs_to :dish
   has_many   :custom_orders
 
-  scope :all_for_organization, -> (organization_ids) { Proposal.where(organization_id: organization_ids) }
+  scope :all_for_organization, ->(organization_ids) { Proposal.where(organization_id: organization_ids) }
 end
