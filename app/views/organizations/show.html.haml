@@ -10,9 +10,11 @@
           = @organization.name
         %li.list-group-item
           Miasto:
-          = @organization.user.email
+          = @organization.city
         %li.list-group-item
           Opis:
           = @organization.description
         
+        
       = link_to "Edytuj profil organizacji", edit_user_cook_path(@orgaznization, @organization),class: "btn btn-dark"
+
