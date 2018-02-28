@@ -19,13 +19,13 @@ class User < ApplicationRecord
 
   def info_completed?
     name.present? &&
-    last_name.present? &&
-    interesting_city.present? &&
-    live_city.present?
+      last_name.present? &&
+      interesting_city.present? &&
+      live_city.present?
   end
 
   def is_cook?
-    return true if self.cook.present?
+    return true if cook.present?
     false
   end
 end

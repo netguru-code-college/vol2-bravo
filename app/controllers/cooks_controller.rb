@@ -29,7 +29,7 @@ class CooksController < ApplicationController
       notice = 'Profil kucharza zaktualizowany!'
       redirect_to user_cook_path(@cook.user, @cook), notice: notice
     else
-      render "edit"
+      render 'edit'
     end
   end
 
