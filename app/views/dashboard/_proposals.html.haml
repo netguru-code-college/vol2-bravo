@@ -1,0 +1,19 @@
+- @dashboard.cook_proposals.each do |_, proposals|
+  .container
+    - proposals.each do |proposal|
+      %h3 
+        Organizacja:
+        = Organization.find(proposal.organization_id).name
+        .card.proposals_card
+          .card-block
+            %ul.w-100.m-0.p-0
+              %li.proposals_card__time
+                %span.proposals_card__dish_details=proposal.decorate.dish_name
+                %span.proposals_card__dish_time
+                  %i.ion-android-stopwatch
+                  %span=proposal.expiration_date
+              %li.proposals_card__price
+                %span.proposals_card__label Ilość:
+                %span.mr-1=proposal.quantity
+                %span.proposals_card__label Cena:
+                %span.proposals_card__dish_price=proposal.price

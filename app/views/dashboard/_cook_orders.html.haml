@@ -1,0 +1,14 @@
+.container_header
+  %span.latest_orders Ostatnie zamównienia:
+.container_orders
+  %ul.list-group
+    -@dashboard.cook_orders_hash.each do |_, order|
+      %li.list-group-item.mb-2
+        %span.font-weight-bold Oferta:
+        %span.m-1= order[:proposal]
+        %span.font-weight-bold Ilość:
+        %span.m-1= order[:quantity]
+        %span.font-weight-bold Data odbioru:
+        %span.m-1= order[:receive_date]
+        %span.font-weight-bold Kto zamówił:
+        %span.m-1= order[:user]
