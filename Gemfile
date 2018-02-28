@@ -30,6 +30,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'faker'
   gem 'dotenv-rails'
+  gem 'rubocop', '~> 0.52.1', require: false
 end
 
 group :development do
