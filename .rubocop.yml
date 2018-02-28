@@ -33,6 +33,7 @@ AllCops:
     - 'Capfile'
     - 'Rakefile'
     - 'vendor/**/*'
+    - 'spec/**/*'
 Style/Lambda:
   EnforcedStyle: literal
 Layout/DotPosition:

@@ -30,7 +30,7 @@ class DishesController < ApplicationController
       not_cook
     end
   end
-    
+
   def edit
     set_cook_and_dish
   end
