@@ -46,7 +46,7 @@ class DishesController < ApplicationController
 
   def destroy
     set_cook_and_dish.destroy
-    flash[:success] = 'User deleted'
+    flash[:success] = "Danie zostało usunięte"
     redirect_to action: 'index', cook_id: @cook.id
   end
 

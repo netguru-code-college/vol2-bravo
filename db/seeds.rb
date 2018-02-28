@@ -62,10 +62,10 @@ Proposal.create(price: 20,
 
 users_who_want_to_create_organization = User.last(2)
 
-Administration.create(user_id: users_who_want_to_create_organization[0].id, 
+Administration.create(user_id: users_who_want_to_create_organization[0].id,
                       organization_id: Organization.first.id)
 
-Administration.create(user_id: users_who_want_to_create_organization[1].id, 
+Administration.create(user_id: users_who_want_to_create_organization[1].id,
                       organization_id: Organization.second.id)
 
 Organization.all.each do |organization|
@@ -74,14 +74,12 @@ end
 
 Ingredient.create(
             name: 'Marchewka',
-            kind: 'Warzywo')
+            kind: 0)
 
 Ingredient.create(
             name: 'Kostka rosołowa',
-            kind: 'Inne')
+            kind: 1)
 
 Ingredient.all.each do |ingredient|
   DishesIngredient.create(dish_id: Dish.first.id, ingredient_id: ingredient.id)
 end
-
-
