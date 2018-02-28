@@ -2,6 +2,10 @@ class OrganizationsController < ApplicationController
   before_action :authenticate_user!
   # before_action :set_organization
 
+  def index
+    @organizations = Organization.all
+  end
+
   def show
     set_organization # @organization = Organization.find(params[:id])
   end

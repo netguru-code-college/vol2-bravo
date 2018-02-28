@@ -1,0 +1,17 @@
+%ul
+  - @organizations.each do |organization|
+    .container
+      .row
+        .card.m-1
+          .card-block
+            .col-md-6
+              %li
+                = link_to organization.name, organization_path(organization)
+              %li
+                = organization.description
+              %li
+                = organization.city
+            .col-md-6
+              = link_to 'Obserwuj', '/', class: 'btn btn-info'
+              - if current_user.cook
+                = link_to 'Dołącz', '/', class: 'btn btn-info'

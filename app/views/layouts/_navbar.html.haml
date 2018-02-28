@@ -1,5 +1,8 @@
 %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
   = link_to "ZurNow", "/", class: "navbar-brand"
+  %ul.navbar-nav.mr-auto
+    - if user_signed_in?
+      = link_to 'Lista organizacji', organizations_path, class: "nav-link"
   %ul.navbar-nav.ml-auto
     - if user_signed_in?
       %li.nav-item
