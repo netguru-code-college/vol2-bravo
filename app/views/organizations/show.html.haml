@@ -1,10 +1,18 @@
-
-Organization name:
-<br>
-= @organization.name
-<br> City:
-<br>
-= @organization.city
-<br> Description:
-<br>
-= @organization.description
+.container-fluid.p-4
+  .row
+    .col-md-8
+      -# List of organizations
+    .col-md-4
+      %span Profil organizacji:
+      %ul.list-group
+        %li.list-group-item
+          Nazwa organizacji:
+          = @organization.name
+        %li.list-group-item
+          Miasto:
+          = @cook.user.email
+        %li.list-group-item
+          Opis:
+          = @cook.description
+        
+      = link_to "Edytuj profil organizacji", edit_user_cook_path(@orgaznization, @organization),class: "btn btn-dark"
