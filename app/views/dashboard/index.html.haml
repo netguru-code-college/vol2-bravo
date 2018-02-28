@@ -1,3 +1,10 @@
 - if user_signed_in?
-  .container--user_view
-    = render :partial => 'user'
+  .row
+    .col-md-6.text-center
+      = link_to "Załóż organizację", new_organization_path, class: "btn btn-info"
+    .col-md-6.text-center
+      - unless current_user.cook
+        = link_to "Zostań kucharzem", new_user_cook_path(current_user), class: "btn btn-info"
+      - else
+        = link_to "Mój profil kucharza", user_cook_path(current_user, current_user.cook), class: "btn btn-info"
+  = render 'tabs'

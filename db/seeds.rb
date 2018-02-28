@@ -91,25 +91,28 @@ Dish.create(name: 'Żurek',
             cook_id: 2)
 
 # Kasia creates a new proposal in her organization
-Proposal.create(price: 3.00,
-                quantity: 1000,
+Proposal.create(price: 0.00,
+                quantity: 2,
                 expiration_date: "Mon, 28 Feb 2018 13:00:00 +0100",
                 dish_id: 1,
-                organization_id: 2)
+                organization_id: 2,
+                cook_id: 1)
 
 # Kasia creates a new proposal in other organization
 Proposal.create(price: 2.00,
-                quantity: 600,
+                quantity: 3,
                 expiration_date: "Mon, 28 Feb 2018 17:00:00 +0100",
                 dish_id: 2,
-                organization_id: 1)
+                organization_id: 1,
+                cook_id: 1)
 
 # Piotr creates a new proposal in his organization
 Proposal.create(price: 4.00,
-                quantity: 700,
+                quantity: 10,
                 expiration_date: "Mon, 28 Feb 2018 15:00:00 +0100",
                 dish_id: 3,
-                organization_id: 3)
+                organization_id: 3,
+                cook_id: 2)
 
 # Jacek follows all organizations
 3.times do |n| 
@@ -127,3 +130,18 @@ Ingredient.create(name: 'Kostka rosołowa', kind: 'Inne')
 DishesIngredient.create(dish_id: 1, ingredient_id: 1)
 
 # Create custom orders
+CustomOrder.create(quantity: 1,
+                   receive_date: Time.zone.now,
+                   user_id: 1,
+                   proposal_id: 1)
+
+CustomOrder.create(quantity: 2,
+                   receive_date: Time.zone.now,
+                   user_id: 1,
+                   proposal_id: 2)
+
+
+CustomOrder.create(quantity: 2,
+                   receive_date: Time.zone.now,
+                   user_id: 1,
+                   proposal_id: 3)
