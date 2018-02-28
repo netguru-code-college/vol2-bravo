@@ -5,5 +5,5 @@ services:
  - postgresql
 before_script:
  - psql -c 'create database vol2_bravo_test;' -U postgres
- #script:
- #- bundle exec rubocop
+script:
+ - bundle exec rubocop
