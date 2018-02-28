@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20180228085723) do
     t.index ["user_id"], name: "index_custom_orders_on_user_id"
   end
 
-  
   create_table "dishes", force: :cascade do |t|
     t.string "name"
     t.text "description"
