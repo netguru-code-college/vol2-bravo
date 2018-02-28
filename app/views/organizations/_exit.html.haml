@@ -1,0 +1,2 @@
+= form_for(current_user.cook.cooks_organizations.find_by(organization_id: @organization.id), html: { method: :delete }, remote: true) do |f|
+  = f.submit "Wyjdź z organizacji", class: "btn btn-danger"

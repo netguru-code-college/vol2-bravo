@@ -1,8 +1,8 @@
-class RelationshipsController < ApplicationController
+class CooksOrganizationsController < ApplicationController
 
   def create
     @organization = Organization.find(params[:id])
-    current_user.follow(@organization)
+    current_user.cook.join(@organization)
     respond_to do |format|
       format.html { redirect_to @organization }
       format.js
@@ -10,8 +10,8 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    @organization = Relationship.find(params[:id]).organization
-    current_user.unfollow(@organization)
+    @organization = CooksOrganization.find(params[:id]).organization
+    current_user.cook.exit(@organization)
     respond_to do |format|
       format.html { redirect_to @organization }
       format.js

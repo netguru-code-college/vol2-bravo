@@ -2,6 +2,7 @@
   .row
     .col-md-8
       = render 'organizations/follow_form', object: @organization if current_user
+      = render 'organizations/join_form', object: @organization if current_user.cook
     .col-md-4
       %span Profil organizacji:
       %ul.list-group
@@ -14,4 +15,4 @@
         %li.list-group-item
           Opis:
           = @organization.description
-      = link_to "Edytuj profil organizacji", edit_user_cook_path(current_user, @organization), class: "btn btn-dark"
+          

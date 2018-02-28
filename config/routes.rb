@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   resources :ingredients
 
   resources :relationships, only: [:create, :destroy]
+  resources :cooks_organizations, only: [:create, :destroy]
 end
