@@ -48,7 +48,7 @@ Organization.create(name: "Zupki by Kasia",
                     city: 'Poznań',
                     description: 'Najlepsze z najlepszych!',
                     private_type: true)
-                    
+
 Administration.create(user_id: 2, organization_id: 2)
 
 # Piotr creates a organization
@@ -107,7 +107,7 @@ Proposal.create(price: 4.00,
                 cook_id: 2)
 
 # Jacek follows all organizations
-3.times do |n| 
+3.times do |n|
   Relationship.create(user_id: 1, organization_id: n+1)
 end
 
@@ -115,9 +115,9 @@ end
 Relationship.create(user_id: 2, organization_id: 3)
 
 # Create some ingredients
-Ingredient.create(name: 'Marchewka', kind: 'Warzywo')
+Ingredient.create(name: 'Marchewka', kind: 0)
 
-Ingredient.create(name: 'Kostka rosołowa', kind: 'Inne')
+Ingredient.create(name: 'Kostka rosołowa', kind: 1)
 
 DishesIngredient.create(dish_id: 1, ingredient_id: 1)
 
