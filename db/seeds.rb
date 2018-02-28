@@ -57,13 +57,6 @@ Organization.create(name: "PiotrZur",
                     description: 'Żurek jak u mamy!',
                     private_type: true)
 
-<<<<<<< HEAD
-Administration.create(user_id: users_who_want_to_create_organization[0].id,
-                      organization_id: Organization.first.id)
-
-Administration.create(user_id: users_who_want_to_create_organization[1].id,
-                      organization_id: Organization.second.id)
-=======
 Administration.create(user_id: 3, organization_id: 3)
 
 # Kasia is cooking in her organization and in other organization
@@ -71,7 +64,6 @@ Administration.create(user_id: 3, organization_id: 3)
 CooksOrganization.create(cook_id: 1, organization_id: 1)
 CooksOrganization.create(cook_id: 1, organization_id: 2)
 CooksOrganization.create(cook_id: 2, organization_id: 3)
->>>>>>> Update seed.db
 
 # Kasia creates a new dish
 Dish.create(name: 'Rosołek babci Kazi w pięciu smakach',
