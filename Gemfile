@@ -18,7 +18,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'draper'
 gem "font-ionicons-rails"
-
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug',                platforms: [:mri, :mingw, :x64_mingw]
@@ -28,7 +28,6 @@ group :development, :test do
   gem 'factory_bot_rails',     '~> 4.0'
   gem 'pry-rails'
   gem 'faker'
-  gem 'dotenv-rails'
   gem 'rubocop', '~> 0.52.1', require: false
 end
 
