@@ -5,13 +5,14 @@ class DishesController < ApplicationController
     if @cook.dishes.present? then
       @cook_dishes = @cook.dishes
     else
-      notice.now = 'Kucharz nie ma żadnych dań'
+      flash[:notice] = 'Kucharz nie ma żadnych dań'
     end
   end
 
   def new
     @dish = Dish.new
     @cook = Cook.find(params[:cook_id])
+    @ingredients = Ingredient.all
   end
 
   def show
@@ -21,6 +22,8 @@ class DishesController < ApplicationController
   def create
     if current_user.cook? then
       @dish = Dish.new(dish_params)
+      ingredients = Ingredient.find(params[:dish][:ingredients])
+      @dish.ingredients << ingredients
       if @dish.save
         redirect_to cook_dish_path(current_user.cook, @dish)
       else
