@@ -6,4 +6,16 @@ class Cook < ApplicationRecord
   has_many   :dishes,        dependent: :destroy
 
   validates :speciality, :work_city, presence: true
+
+  def join(organization)
+    organizations << organization
+  end
+
+  def exit(organization)
+    organizations.delete(organization)
+  end
+
+  def member?(organization)
+    organizations.include?(organization)
+  end
 end

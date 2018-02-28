@@ -1,4 +1,4 @@
-= form_for ([@organization, @proposal]), url: { controller: 'proposals', action: 'create'} do |f|
+= form_for([@organization, @proposal], url: { controller: 'proposals', action: 'create'}) do |f|
   .form-group
     = f.label(:price, "Cena: ", class: 'col-form-label')
     = f.text_field :price, class: 'form-control'
