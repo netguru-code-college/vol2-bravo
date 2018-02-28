@@ -14,10 +14,10 @@ class CooksController < ApplicationController
   def create
     @cook = Cook.new(cook_params)
     if @cook.save
-      notice = "Witamy nowego kucharza!"
+      notice = 'Witamy nowego kucharza!'
       redirect_to user_cook_path(@cook.user, @cook), notice: notice
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -26,7 +26,7 @@ class CooksController < ApplicationController
 
   def update
     if @cook.update_attributes(cook_params)
-      notice = "Profil kucharza zaktualizowany!"
+      notice = 'Profil kucharza zaktualizowany!'
       redirect_to user_cook_path(@cook.user, @cook), notice: notice
     else
       render "edit"
@@ -35,7 +35,7 @@ class CooksController < ApplicationController
 
   def destroy
     @cook.destroy
-    notice = "Profil kucharza został usunięty!"
+    notice = 'Profil kucharza został usunięty!'
     redirect_to root_path, notice: notice
   end
 

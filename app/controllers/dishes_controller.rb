@@ -24,12 +24,13 @@ class DishesController < ApplicationController
       if @dish.save
         redirect_to cook_dish_path(current_user.cook, @dish)
       else
-        render "new"
+        render 'new'
       end
     else
-        not_cook
+      not_cook
     end
   end
+    
   def edit
     set_cook_and_dish
   end
@@ -39,13 +40,13 @@ class DishesController < ApplicationController
     if @dish.update_attributes(dish_params) then
         redirect_to cook_dish_path(current_user.cook, @dish)
     else
-      render "edit"
+      render 'edit'
     end
   end
 
   def destroy
     set_cook_and_dish.destroy
-    flash[:success] = "User deleted"
+    flash[:success] = 'User deleted'
     redirect_to action: 'index', cook_id: @cook.id
   end
 
@@ -53,12 +54,13 @@ class DishesController < ApplicationController
 
     def dish_params
       if current_user.is_cook? then
-        params.require(:dish).permit(:name, :description, :type_of_kitchen, :spicyness).merge(cook_id: current_user.cook.id)
+        params.require(:dish).permit(:name, :description, :type_of_kitchen,
+                                     :spicyness).merge(cook_id: current_user.cook.id)
       end
     end
 
     def not_cook
-      redirect_to root_path , notice: 'Nie jesteś kucharzem, nie możesz tworzyć dań!'
+      redirect_to root_path, notice: 'Nie jesteś kucharzem, nie możesz tworzyć dań!'
     end
 
     def set_cook_and_dish
