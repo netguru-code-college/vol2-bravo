@@ -4,8 +4,6 @@
   padding: $tenPx * 4;
 }
 .proposals{
-  height: 100vh;
-  overflow: scroll;
   padding: $tenPx * 2;
 
   .proposals_card{
@@ -43,13 +41,15 @@
     }
   }
 }
+.container--scroll {
+  min-height: 70vh;
+  overflow: scroll;
+}
 .orders{
   // padding-top: $tenPx * 5;
   .container_orders{
     border: 1px solid $light-gray;
     padding: $tenPx;
-    height: 100vh;
-    overflow: scroll;
   }
 }
 .container_header{

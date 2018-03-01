@@ -1,10 +1,13 @@
 .text-center
-  = link_to "Dodaj nowe danie", new_cook_dish_path(current_user.cook), class: "btn btn-info"
-- @dashboard.cook_dishes.each do |dish|
-  .container
-    %ul
-      %li
-        %span.proposals_card__dish_details= dish.name
-      %li
-        %span.proposals_card__label= dish.description
-        %span.proposals_card__dish_price= dish.type_of_kitchen
+  = link_to "Dodaj nowe danie", new_cook_dish_path(current_user.cook), class: "btn btn-info m-2"
+.container--scroll
+  - @dashboard.cook_dishes.each do |dish|
+    .card.m-2
+      .card-body.p-1
+        %ul.list-group.list-group-flush
+          %li.list-group-item
+            %span.font-weight-bold= dish.name
+          %li.list-group-item
+            %span= dish.type_of_kitchen
+            %br
+            %span= dish.description
