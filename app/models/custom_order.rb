@@ -1,4 +1,6 @@
 class CustomOrder < ApplicationRecord
+  # attr_accessor :quantity
+
   belongs_to :user
   belongs_to :proposal
 

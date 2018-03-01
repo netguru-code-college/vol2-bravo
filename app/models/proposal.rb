@@ -1,4 +1,6 @@
 class Proposal < ApplicationRecord
+  # attr_accessor :quantity
+
   belongs_to :organization
   belongs_to :dish
   has_many   :custom_orders

@@ -6,9 +6,9 @@ class CustomOrdersController < ApplicationController
   end
 
   def create
-    @custom_order = CustomOrder.new(custom_order_params)
+    @custom_order = CustomOrder.new(custom_order_params)    
     if @custom_order.save
-      # TODO- service
+      CustomServices::QuantityCalculator.new(@custom_order).call
       redirect_to root_path
     else
       redirect_to custom_order_path(params[:proposal_id])
