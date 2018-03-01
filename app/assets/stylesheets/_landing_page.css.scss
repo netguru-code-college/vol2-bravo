@@ -1,1 +1,24 @@
 @import "variables";
+
+section {
+  height: $tenPx * 40;
+  width: 100%;
+}
+.first {
+  background-image: url(dishes.jpeg);
+  background-repeat: repeat-x;
+  background-size: contain;
+  box-shadow: #6e716f 0px 10px 20px;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.c-white{
+  color: white;
+}
+.c-green {
+  color: $main-green--light;
+}
