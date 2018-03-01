@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/netguru-code-college/vol2-bravo.svg?branch=master)](https://travis-ci.org/netguru-code-college/vol2-bravo)
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://sandbag.herokuapp.com/)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://zurnow.herokuapp.com/)
 
 ## ŻurNow   :fork_and_knife:
 Application will connect people who make their own dishes at home and they make more then they need with people who want to eat some home made meals.
