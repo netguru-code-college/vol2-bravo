@@ -1,5 +1,5 @@
 class Proposal < ApplicationRecord
-  # attr_accessor :quantity
+  default_scope -> { order(created_at: :desc) }
 
   belongs_to :organization
   belongs_to :dish
