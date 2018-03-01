@@ -25,7 +25,8 @@ class DishesController < ApplicationController
       ingredients = Ingredient.find(params[:dish][:ingredients])
       @dish.ingredients << ingredients
       if @dish.save
-        redirect_to cook_dish_path(current_user.cook, @dish)
+        redirect_to(controller: 'dashboard', action: 'index')
+        flash[:notice] = 'Twoje danie zostało utworzone!'
       else
         render 'new'
       end

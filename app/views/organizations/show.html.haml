@@ -1,10 +1,5 @@
 .container-fluid.p-4
   .row
-    .col-md-8
-      = render 'organizations/follow_form', object: @organization if current_user
-      - if current_user.cook
-        = render 'organizations/join_form', object: @organization 
-        = link_to "Stwórz ofertę", new_organization_proposal_path(@organization), class: 'btn btn-info'
     .col-md-4
       %span Profil organizacji:
       %ul.list-group
@@ -17,3 +12,8 @@
         %li.list-group-item
           Opis:
           = @organization.description
+    .col-md-8
+      = render 'organizations/follow_form', object: @organization if current_user
+      - if current_user.cook
+        = render 'organizations/join_form', object: @organization
+        = link_to "Stwórz ofertę", new_organization_proposal_path(@organization), class: 'btn btn-info'

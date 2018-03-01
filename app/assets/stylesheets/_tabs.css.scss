@@ -1,0 +1,21 @@
+@import "variables";
+#user_tabs {
+  .nav-tabs {
+    background: $dark-gray;
+    padding: $tenPx $tenPx 0 $tenPx;
+    border-bottom: 5px solid $main-green--light;
+  }
+  .nav-link {
+    background: $light-gray;
+    border: none;
+    margin-left: $tenPx * 0.5;
+    border-radius: 0;
+    padding: $tenPx $tenPx * 2;
+    color: gray;
+
+    &.active {
+      background-color: $main-green--light;
+      color: white;
+    }
+  }
+}

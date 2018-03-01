@@ -1,6 +1,6 @@
 .container_header
   %span.latest_orders Ostatnie zamównienia:
-.container_orders
+.container_orders.container--scroll
   %ul.list-group
     -@dashboard.custom_orders_hash.each do |_, order|
       %li.list-group-item.mb-2

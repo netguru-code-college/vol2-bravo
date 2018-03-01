@@ -1,24 +1,28 @@
 .container-fluid.p-4
   .row
-    .col-md-8
-      -# List of cook's proposals
     .col-md-4
-      %span Profil kucharza:
+      %h1 Profil kucharza:
+      %br
       %ul.list-group
         %li.list-group-item
           = @cook.user.name
           = @cook.user.last_name
         %li.list-group-item
-          Email:
+          %span.font-weight-bold Email:
           = @cook.user.email
         %li.list-group-item
-          Specjalność:
+          %span.font-weight-bold Specjalność:
           = @cook.speciality
         %li.list-group-item
-          Miasto pracy:
+          %span.font-weight-bold Pracuje w:
           = @cook.work_city
+          %span.font-weight-bold dla:
+          %ul.list-group.list-group-flush
+            - @cook.organizations.each do |organization|
+              =link_to organization_path(organization.id) do
+                %li.list-group-item.list-group-item-action.text-center= organization.name
         %li.list-group-item
-          Ocena:
+          %span.font-weight-bold Ocena:
           = @cook.stars
-        
-      = link_to "Edytuj profil kucharza", edit_user_cook_path(@cook.user, @cook),class: "btn btn-dark"
+
+      = link_to "Edytuj profil kucharza", edit_user_cook_path(@cook.user, @cook),class: "btn btn-info ml-0"

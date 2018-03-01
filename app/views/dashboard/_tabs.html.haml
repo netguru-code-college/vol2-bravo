@@ -1,14 +1,19 @@
-%ul.nav.nav-tabs{:role => "tablist"}
-  %li.nav-item
-    %a.nav-link.active{"data-toggle" => "tab", :href => "#user", :role => "tab"} Użytkownik
-  - if current_user.cook
+#user_tabs
+  %ul.nav.nav-tabs{:role => "tablist"}
     %li.nav-item
-      %a.nav-link{"data-toggle" => "tab", :href => "#cook", :role => "tab"} Kucharz
-.tab-content
-  #user.tab-pane.fade.in.active.show{:role => "tabpanel"}
-    .container--user_view
-      = render :partial => 'user'
-  - if current_user.cook
-    #cook.tab-pane.fade{:role => "tabpanel"}
-      .container--cook_view
-        = render :partial => 'cook'
+      %a.nav-link.active{"data-toggle" => "tab", :href => "#user", :role => "tab"}
+        %i.ion-android-person.mr-2
+        Użytkownik
+    - if current_user.cook
+      %li.nav-item
+        %a.nav-link{"data-toggle" => "tab", :href => "#cook", :role => "tab"}
+          %i.ion-android-restaurant.mr-2
+          Kucharz
+  .tab-content
+    #user.tab-pane.fade.in.active.show{:role => "tabpanel"}
+      .container--user_view
+        = render :partial => 'user'
+    - if current_user.cook
+      #cook.tab-pane.fade{:role => "tabpanel"}
+        .container--cook_view
+          = render :partial => 'cook'
