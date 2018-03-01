@@ -1,25 +1,88 @@
-# Create 3 users
-User.create(email: 'user@user.com',
-            name: "Jacek",
-            last_name: "M",
+# Create 10 users
+User.create(email: 'user1@user.com',
+            name: 'Jacek',
+            last_name: 'M',
             password: 'qwerty',
             password_confirmation: 'qwerty',
             live_city: 'Poznań',
             interesting_city: 'Poznań',
             confirmed_at: Time.zone.now)
 
-User.create(email: 'cook@cook.com',
-            name: "Kasia",
-            last_name: "K",
+User.create(email: 'user2@user.com',
+            name: 'Kasia',
+            last_name: 'K',
             password: 'qwerty',
             password_confirmation: 'qwerty',
             live_city: 'Poznań',
             interesting_city: 'Poznań',
             confirmed_at: Time.zone.now)
 
-User.create(email: 'cook2@cook.com',
-            name: "Piotr",
-            last_name: "F",
+User.create(email: 'user3@user.com',
+            name: 'Piotr',
+            last_name: 'F',
+            password: 'qwerty',
+            password_confirmation: 'qwerty',
+            live_city: 'Kraków',
+            interesting_city: 'Kraków',
+            confirmed_at: Time.zone.now)
+            
+User.create(email: 'user4@user.com',
+            name: 'Zuzanna',
+            last_name: 'S',
+            password: 'qwerty',
+            password_confirmation: 'qwerty',
+            live_city: 'Kraków',
+            interesting_city: 'Kraków',
+            confirmed_at: Time.zone.now)
+            
+User.create(email: 'user5@user.com',
+            name: 'Robert',
+            last_name: 'K',
+            password: 'qwerty',
+            password_confirmation: 'qwerty',
+            live_city: 'Warszawa',
+            interesting_city: 'Warszawa',
+            confirmed_at: Time.zone.now)
+            
+User.create(email: 'user6@user.com',
+            name: 'Łukasz',
+            last_name: 'O',
+            password: 'qwerty',
+            password_confirmation: 'qwerty',
+            live_city: 'Katowice',
+            interesting_city: 'Katowice',
+            confirmed_at: Time.zone.now)
+            
+User.create(email: 'user7@user.com',
+            name: 'Darek',
+            last_name: 'M',
+            password: 'qwerty',
+            password_confirmation: 'qwerty',
+            live_city: 'Poznań',
+            interesting_city: 'Poznań',
+            confirmed_at: Time.zone.now)
+
+User.create(email: 'user8@user.com',
+            name: "Lidia",
+            last_name: "W",
+            password: 'qwerty',
+            password_confirmation: 'qwerty',
+            live_city: 'Warszawa',
+            interesting_city: 'Warszawa',
+            confirmed_at: Time.zone.now)
+            
+User.create(email: 'user9@user.com',
+            name: "Patryk",
+            last_name: "S",
+            password: 'qwerty',
+            password_confirmation: 'qwerty',
+            live_city: 'Katowice',
+            interesting_city: 'Katowice',
+            confirmed_at: Time.zone.now)
+            
+User.create(email: 'user10@user.com',
+            name: "Bartosz",
+            last_name: "S",
             password: 'qwerty',
             password_confirmation: 'qwerty',
             live_city: 'Poznań',
