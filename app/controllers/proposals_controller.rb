@@ -30,7 +30,7 @@ class ProposalsController < ApplicationController
 
   def update
     @proposal = Proposal.find(params[:id])
-    if @proposal.update_attributes(proposal_params) then
+    if @proposal.update_attributes(proposal_params)
       redirect_to organization_proposals_path(current_user.cook, @proposal)
     else
       render 'edit'
@@ -41,13 +41,14 @@ class ProposalsController < ApplicationController
     @organization = Organization.all.find(params[:organization_id])
     @proposal = Proposal.find(params[:id])
     @proposal.destroy
-    flash[:success] = "Zamównienie zostało usunięte"
+    flash[:success] = 'Zamównienie zostało usunięte'
     redirect_to action: 'index', organization_id: @organization.id
   end
 
   private
 
-    def proposal_params
-      params.require(:proposal).permit(:price, :expiration_date, :quantity, :dish_id).merge(organization_id: params[:organization_id])
-    end
+  def proposal_params
+    params.require(:proposal).permit(:price, :expiration_date, :quantity, :dish_id)
+          .merge(organization_id: params[:organization_id])
+  end
 end

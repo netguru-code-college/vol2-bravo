@@ -1,8 +1,8 @@
 class CooksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:new, :create, :update]
-  before_action :set_cook, only: [:show, :edit, :update, :destroy]
-  before_action :cook_already?, only: [:new, :create]
+  before_action :set_user, only: %i[new create update]
+  before_action :set_cook, only: %i[show edit update destroy]
+  before_action :cook_already?, only: %i[new create]
 
   def show
   end
@@ -41,19 +41,19 @@ class CooksController < ApplicationController
 
   private
 
-    def cook_params
-      params.require(:cook).permit(:speciality, :work_city).merge(user_id: @user.id)
-    end
+  def cook_params
+    params.require(:cook).permit(:speciality, :work_city).merge(user_id: @user.id)
+  end
 
-    def set_user
-      @user = User.find(params[:user_id])
-    end
+  def set_user
+    @user = User.find(params[:user_id])
+  end
 
-    def set_cook
-      @cook = Cook.find(params[:id])
-    end
+  def set_cook
+    @cook = Cook.find(params[:id])
+  end
 
-    def cook_already?
-      redirect_to user_cook_path(@user, cook) if @user.cook?
-    end
+  def cook_already?
+    redirect_to user_cook_path(@user, cook) if @user.cook?
+  end
 end

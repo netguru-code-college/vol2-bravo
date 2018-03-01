@@ -8,8 +8,6 @@ class DashboardController < ApplicationController
   private
 
   def user_need_to_fill_personal_info
-    if current_user.present?
-      redirect_to edit_user_path(current_user) unless current_user.info_completed?
-    end
+    redirect_to edit_user_path(current_user) if current_user.present? && !current_user.info_completed?
   end
 end

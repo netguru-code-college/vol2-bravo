@@ -34,8 +34,6 @@ AllCops:
     - 'Rakefile'
     - 'vendor/**/*'
     - 'spec/**/*'
-    # we need to delete and fix rubocop problems
-    - 'app/controllers/*'
 Style/Lambda:
   EnforcedStyle: literal
 Layout/DotPosition:
