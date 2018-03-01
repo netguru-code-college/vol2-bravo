@@ -1,17 +1,19 @@
-= form_for ([@cook, @dish]) do |f|
-  .form-group
-    = f.label(:name, "Nazwa: ", class: 'col-form-label')
-    = f.text_field :name, class: 'form-control'
-  .form-group
-    = f.label(:name, "Opis: ", class: 'col-form-label')
-    = f.text_field :description, class: 'form-control'
-  .form-group
-    = f.label(:name, "Typ kuchni: ", class: 'col-form-label')
-    = f.text_field :type_of_kitchen, class: 'form-control'
-  .form-group
-    = f.label(:name, "Ostrość: ", class: 'col-form-label')
-    = f.text_field :spicyness, class: 'form-control'
-  .form-group
-    -# = f.select :ingredients, Ingredient.all.collect{|e| [e.name , e]}
-    =collection_select(:dish, :ingredients, Ingredient.all, :id, :name, prompt: true)
-    = f.submit "Stwórz danie", class: 'btn btn-success'
+.form-container
+  = form_for ([@cook, @dish]) do |f|
+    .form-group
+      = f.label(:name, "Nazwa: ", class: 'col-form-label')
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      = f.label(:name, "Opis: ", class: 'col-form-label')
+      = f.text_field :description, class: 'form-control'
+    .form-group
+      = f.label(:name, "Typ kuchni: ", class: 'col-form-label')
+      = f.text_field :type_of_kitchen, class: 'form-control'
+    .form-group
+      = f.label(:name, "Ostrość: ", class: 'col-form-label')
+      = f.text_field :spicyness, class: 'form-control'
+    .form-group
+      -# = f.select :ingredients, Ingredient.all.collect{|e| [e.name , e]}
+      =collection_select(:dish, :ingredients, Ingredient.all, :id, :name, prompt: true, class: 'form-control')
+      %br
+      = f.submit "Stwórz danie", class: 'btn btn-success'

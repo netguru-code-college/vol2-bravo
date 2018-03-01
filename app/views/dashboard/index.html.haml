@@ -7,3 +7,5 @@
       - else
         = link_to "Mój profil kucharza", user_cook_path(current_user, current_user.cook), class: "btn btn-info float-right"
   = render 'tabs'
+- else
+  = render 'landing_page'

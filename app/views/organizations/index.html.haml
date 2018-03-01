@@ -1,13 +1,13 @@
-%ul
-  - @organizations.each do |organization|
-    .container
-      .row
-        .card.m-1
-          .card-block
-            .col-md-6
-              %li
-                = link_to organization.name, organization_path(organization)
-              %li
-                = organization.description
-              %li
-                = organization.city
+.table-responsive
+  %table.table.table-hover.table-dark
+    %thead
+      %tr
+        %th Nazwa:
+        %th Miasto:
+        %th Opis:
+    %tbody
+      - @organizations.each do |organization|
+        %tr
+          %td=link_to organization.name, organization_path(organization)
+          %td= organization.city
+          %td= organization.description
