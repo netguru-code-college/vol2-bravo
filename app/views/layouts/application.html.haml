@@ -2,12 +2,12 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Vol2Bravo
+    %title ZurNOW
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render "layouts/navbar"
     = render 'layouts/alerts'
-    %div.constainer-fluid.p-4
+    %div.constainer-fluid
       = yield
