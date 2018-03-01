@@ -16,4 +16,7 @@
       = render 'organizations/follow_form', object: @organization if current_user
       - if current_user.cook
         = render 'organizations/join_form', object: @organization
-        = link_to "Stwórz ofertę", new_organization_proposal_path(@organization), class: 'btn btn-info'
+        #new-proposal-button
+          - if current_user.cook.member?(@organization)
+            = link_to "Stwórz ofertę", new_organization_proposal_path(@organization),
+                                       class: 'btn btn-info', id: 'create-proposal'
