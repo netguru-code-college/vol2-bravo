@@ -2,7 +2,7 @@ class DishesController < ApplicationController
   before_action :authenticate_user!
   def index
     @cook = Cook.find(params[:cook_id])
-    if @cook.dishes.present? then
+    if @cook.dishes.present?
       @cook_dishes = @cook.dishes
     else
       flash[:notice] = 'Kucharz nie ma żadnych dań'
@@ -20,7 +20,7 @@ class DishesController < ApplicationController
   end
 
   def create
-    if current_user.cook? then
+    if current_user.cook?
       @dish = Dish.new(dish_params)
       ingredients = Ingredient.find(params[:dish][:ingredients])
       @dish.ingredients << ingredients
@@ -40,7 +40,7 @@ class DishesController < ApplicationController
 
   def update
     @dish = set_cook_and_dish
-    if @dish.update_attributes(dish_params) then
+    if @dish.update_attributes(dish_params)
       redirect_to cook_dish_path(current_user.cook, @dish)
     else
       render 'edit'
@@ -49,25 +49,23 @@ class DishesController < ApplicationController
 
   def destroy
     set_cook_and_dish.destroy
-    flash[:success] = "Danie zostało usunięte"
+    flash[:success] = 'Danie zostało usunięte'
     redirect_to action: 'index', cook_id: @cook.id
   end
 
   private
 
-    def dish_params
-      if current_user.cook? then
-        params.require(:dish).permit(:name, :description, :type_of_kitchen,
-                                     :spicyness).merge(cook_id: current_user.cook.id)
-      end
-    end
+  def dish_params
+    params.require(:dish).permit(:name, :description, :type_of_kitchen, :spicyness)
+          .merge(cook_id: current_user.cook.id)
+  end
 
-    def not_cook
-      redirect_to root_path, notice: 'Nie jesteś kucharzem, nie możesz tworzyć dań!'
-    end
+  def not_cook
+    redirect_to root_path, notice: 'Nie jesteś kucharzem, nie możesz tworzyć dań!'
+  end
 
-    def set_cook_and_dish
-      @cook = current_user.cook
-      @dish = Dish.find(params[:id])
-    end
+  def set_cook_and_dish
+    @cook = current_user.cook
+    @dish = Dish.find(params[:id])
+  end
 end

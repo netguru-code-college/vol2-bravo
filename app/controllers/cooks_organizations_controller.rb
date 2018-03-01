@@ -1,5 +1,4 @@
 class CooksOrganizationsController < ApplicationController
-
   def create
     @organization = Organization.find(params[:id])
     current_user.cook.join(@organization)
