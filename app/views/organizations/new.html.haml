@@ -1,20 +1,17 @@
 .form-container
-  %h2 Create new organization
+  %h2 Stwórz nową organizację:
   = form_for(@organization) do |f|
     = render 'shared/error_messages', object: f.object
     .field.form-group
-      = f.label :name
+      = f.label :name, "Nazwa: "
       = f.text_field :name, class: 'form-control'
     .field.form-group
-      = f.label :city
+      = f.label :city, "Miasto: "
       = f.text_field :city, class: 'form-control'
     .field.form-group
-      = f.label :description
+      = f.label :description, "Opis: "
       = f.text_field :description, class: 'form-control'
     .field.form-group
-      = f.label :private_type
-      = f.check_box :private_type
-    .field.form-group
-      = f.submit "Save changes", class: "btn btn-dark"
+      = f.submit "Utwórz", class: "btn btn-success"
 //  = link_to "Delete organization", @organization, method: :delete,
 //  data: { confirm: "Are you sure?"}, class: "btn btn-danger"

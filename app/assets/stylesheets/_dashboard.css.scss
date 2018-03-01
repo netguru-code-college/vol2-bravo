@@ -4,7 +4,6 @@
   padding: $tenPx * 4;
 }
 .proposals{
-  padding: $tenPx * 2;
 
   .proposals_card{
     margin-bottom: $tenPx;
@@ -42,11 +41,13 @@
   }
 }
 .container--scroll {
+  padding: $tenPx;
   min-height: 70vh;
   overflow: scroll;
 }
 .orders{
   // padding-top: $tenPx * 5;
+  border-radius: $tenPx;
   .container_orders{
     border: 1px solid $light-gray;
     padding: $tenPx;
@@ -54,15 +55,15 @@
 }
 .container_header{
   height: $tenPx * 7;
-  background-color: $main-yellow;
+  background-color: $dark-gray;
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   font-size: $tenPx * 2;
-  border-bottom: 5px solid #0095ff;
+  border-bottom: 5px solid $main-green--light;
   span {
-    color: #312c15;
+    color: $light-gray;
   }
 }
