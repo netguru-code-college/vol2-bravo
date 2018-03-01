@@ -1,0 +1,8 @@
+= form_for(@custom_order, url: custom_orders_path(@proposal)) do |f|
+  .form-group
+    = f.label(:receive_date, "Data odbioru: ", class: 'col-form-label')
+    = f.text_field :receive_date, class: 'form-control', type: 'datetime-local'
+  .form-group
+    = f.label(:quantity, "Ilość: ", class: 'col-form-label')
+    = f.select(:quantity, @quantity, {}, { class: 'form-control' })
+  = f.submit "Zamawiam", class: "btn btn-dark"
