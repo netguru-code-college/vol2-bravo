@@ -7,7 +7,6 @@ User.create(email: 'user1@user.com',
             live_city: 'Poznań',
             interesting_city: 'Poznań',
             confirmed_at: Time.zone.now)
-puts User.first.name
 
 User.create(email: 'user2@user.com',
             name: 'Kasia',
@@ -103,8 +102,6 @@ Cook.create(work_city: 'Poznań',
             speciality: 'kuchnia polska',
             user_id: 7)
 
-puts Cook.last.speciality
-
 # Jacek creates a organization
 Organization.create(name: "Akademik Góral",
                     city: 'Poznań',
@@ -112,7 +109,6 @@ Organization.create(name: "Akademik Góral",
                     private_type: true)
 
 Administration.create(user_id: 1, organization_id: 1)
-
 
 # Kasia creates a organization
 Organization.create(name: "Zupki by Kasia",
@@ -129,8 +125,6 @@ Organization.create(name: "BlaBlaZur",
                     private_type: true)
 
 Administration.create(user_id: 3, organization_id: 3)
-
-puts Organization.last.name
 
 # Kasia is cooking in her organization and in other organization
 # Piotr is cooking only in his organization
@@ -154,8 +148,6 @@ Dish.create(name: 'Żurek',
             description: 'Najlepszy żurek w Poznaniu',
             type_of_kitchen: 'kuchnia polska',
             cook_id: 2)
-
-puts Dish.last.name
 
 # Kasia creates a new proposal in her organization
 Proposal.create(price: 0.00,
@@ -212,6 +204,3 @@ CustomOrder.create(quantity: 2,
                    receive_date: Time.zone.now,
                    user_id: 1,
                    proposal_id: 3)
-
-
-puts CustomOrder.last.quantity
