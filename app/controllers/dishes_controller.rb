@@ -1,7 +1,7 @@
 class DishesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_cook, only: [:index, :new, :edit, :update, :destroy]
-  before_action :set_dish, only: [:show, :edit, :update, :destroy]
+  before_action :set_cook, only: %i[index new edit update destroy]
+  before_action :set_dish, only: %i[show edit update destroy]
 
   def index
     if @cook.dishes.present?
