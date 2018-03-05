@@ -1,13 +1,12 @@
 class OrganizationsController < ApplicationController
   before_action :authenticate_user!
-  # before_action :set_organization
+  before_action :set_organization, only: %i[show edit update destroy]
 
   def index
     @organizations = Organization.all
   end
 
   def show
-    set_organization # @organization = Organization.find(params[:id])
   end
 
   def new
@@ -21,11 +20,9 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
-    set_organization
   end
 
   def update
-    set_organization
     if @organization.update_attributes(organization_params)
       redirect_to edit_organization_path(@organization), notice: 'Organizacja zaktualizowana'
     else
@@ -34,7 +31,6 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
-    set_organization
     @organization.destroy
     redirect_to new_user_registration_path, notice: 'Organizacja usunięta!'
   end

@@ -1,5 +1,6 @@
 class IngredientsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_ingredient, only: %i[show edit update destroy]
 
   def index
     @ingredients = Ingredient.all
@@ -11,11 +12,9 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    @ingredient = Ingredient.find(params[:id])
   end
 
   def edit
-    @ingredient = Ingredient.find(params[:id])
   end
 
   def create
@@ -28,7 +27,6 @@ class IngredientsController < ApplicationController
   end
 
   def update
-    @ingredient = Ingredient.find(params[:id])
     if @ingredient.update_attributes(ingredient_params)
       redirect_to @ingredient
     else
@@ -37,7 +35,7 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
-    Ingredient.find(params[:id]).destroy
+    @ingredient.destroy
     flash[:success] = 'Składnik został usunięty'
     redirect_to action: 'index'
   end
@@ -46,5 +44,9 @@ class IngredientsController < ApplicationController
 
   def ingredient_params
     params.require(:ingredient).permit(:name, :kind)
+  end
+
+  def set_ingredient
+    @ingredient = Ingredient.find(params[:id])
   end
 end
