@@ -1,7 +1,9 @@
 class DishesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_cook, only: [:index, :new, :edit, :update, :destroy]
+  before_action :set_dish, only: [:show, :edit, :update, :destroy]
+
   def index
-    @cook = Cook.find(params[:cook_id])
     if @cook.dishes.present?
       @cook_dishes = @cook.dishes
     else
@@ -11,12 +13,10 @@ class DishesController < ApplicationController
 
   def new
     @dish = Dish.new
-    @cook = Cook.find(params[:cook_id])
     @ingredients = Ingredient.all
   end
 
   def show
-    @dish = Dish.find(params[:id])
   end
 
   def create
@@ -36,11 +36,9 @@ class DishesController < ApplicationController
   end
 
   def edit
-    set_cook_and_dish
   end
 
   def update
-    @dish = set_cook_and_dish
     if @dish.update_attributes(dish_params)
       redirect_to cook_dish_path(current_user.cook, @dish)
     else
@@ -49,7 +47,7 @@ class DishesController < ApplicationController
   end
 
   def destroy
-    set_cook_and_dish.destroy
+    @dish.destroy
     flash[:success] = 'Danie zostało usunięte'
     redirect_to action: 'index', cook_id: @cook.id
   end
@@ -65,8 +63,15 @@ class DishesController < ApplicationController
     redirect_to root_path, notice: 'Nie jesteś kucharzem, nie możesz tworzyć dań!'
   end
 
-  def set_cook_and_dish
-    @cook = current_user.cook
+  def set_cook
+    @cook = Cook.find(params[:cook_id])
+  end
+
+  def set_dish
     @dish = Dish.find(params[:id])
+  end
+
+  def correct_cook
+    redirect_to root_path unless @cook == current_user.cook
   end
 end

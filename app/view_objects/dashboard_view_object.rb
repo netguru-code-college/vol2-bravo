@@ -11,7 +11,7 @@ class DashboardViewObject
     custom_orders = {}
     @current_user.custom_orders.each do |order|
       proposal = Proposal.find(order.proposal_id)
-      custom_orders[order.id] = { proposal: Proposal.find(order.proposal_id).decorate.dish_name,
+      custom_orders[order.id] = { proposal: proposal.decorate.dish_name,
                                   quantity: order.quantity,
                                   receive_date: order.receive_date.strftime('%d/%m/%Y %H:%M'),
                                   cook: User.find(Cook.find(proposal.cook_id).user_id).name }
@@ -28,7 +28,7 @@ class DashboardViewObject
     cook_orders = CustomOrder.all_orders_for_cook(cook_proposals_ids)
     orders = {}
     cook_orders.each do |order|
-      orders[order.id] = { proposal:  Proposal.find(order.proposal_id).decorate.dish_name,
+      orders[order.id] = { proposal:  proposal.decorate.dish_name,
                            quantity: order.quantity,
                            receive_date: order.receive_date.strftime('%d/%m/%Y %H:%M'),
                            user: User.find(order.user_id).name }
