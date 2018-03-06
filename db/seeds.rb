@@ -89,6 +89,8 @@ User.create(email: 'user10@user.com',
             interesting_city: 'Poznań',
             confirmed_at: Time.zone.now)
 
+puts 'Users has been created.'
+
 # Kasia and Jacek are cooks
 Cook.create(work_city: 'Poznań',
             speciality: 'kuchnia polska',
@@ -101,6 +103,8 @@ Cook.create(work_city: 'Kraków',
 Cook.create(work_city: 'Poznań',
             speciality: 'kuchnia polska',
             user_id: 7)
+
+puts 'Cooks has been created.'
 
 # Jacek creates a organization
 Organization.create(name: "Akademik Góral",
@@ -126,11 +130,15 @@ Organization.create(name: "BlaBlaZur",
 
 Administration.create(user_id: 3, organization_id: 3)
 
+puts 'Organizations has been created.'
+
 # Kasia is cooking in her organization and in other organization
 # Piotr is cooking only in his organization
 CooksOrganization.create(cook_id: 1, organization_id: 1)
 CooksOrganization.create(cook_id: 1, organization_id: 2)
 CooksOrganization.create(cook_id: 2, organization_id: 3)
+
+puts 'Cooks have been filled in to organizations.'
 
 # Kasia creates a new dish
 Dish.create(name: 'Rosołek babci Kazi w pięciu smakach',
@@ -148,6 +156,8 @@ Dish.create(name: 'Żurek',
             description: 'Najlepszy żurek w Poznaniu',
             type_of_kitchen: 'kuchnia polska',
             cook_id: 2)
+
+puts 'Some example dishes have been created.'
 
 # Kasia creates a new proposal in her organization
 Proposal.create(price: 0.00,
@@ -173,6 +183,8 @@ Proposal.create(price: 4.00,
                 organization_id: 3,
                 cook_id: 2)
 
+puts 'Some example proposals have been created.'
+
 # Jacek follows all organizations
 3.times do |n|
   Relationship.create(user_id: 1, organization_id: n+1)
@@ -180,6 +192,8 @@ end
 
 # Kasia follows Piotr's organization
 Relationship.create(user_id: 2, organization_id: 3)
+
+puts 'Some example relationships between users have been created.'
 
 # Create some ingredients
 Ingredient.create(name: 'Marchewka', kind: 0)
@@ -204,3 +218,5 @@ CustomOrder.create(quantity: 2,
                    receive_date: Time.zone.now,
                    user_id: 1,
                    proposal_id: 3)
+
+puts 'Some example custom orders have been created.'
