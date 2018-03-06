@@ -8,15 +8,13 @@ class DashboardViewObject
   end
 
   def custom_orders_hash
-    custom_orders = {}
-    @current_user.custom_orders.each do |order|
+    @current_user.custom_orders.reverse.each_with_object({}) do |order, hsh|
       proposal = Proposal.find(order.proposal_id)
-      custom_orders[order.id] = { proposal: proposal.decorate.dish_name,
-                                  quantity: order.quantity,
-                                  receive_date: order.receive_date.strftime('%d/%m/%Y %H:%M'),
-                                  cook: User.find(Cook.find(proposal.cook_id).user_id).name }
+      hsh[order.id] = { proposal: proposal.decorate.dish_name,
+                        quantity: order.quantity,
+                        receive_date: order.receive_date.strftime('%d/%m/%Y %H:%M'),
+                        cook: User.find(Cook.find(proposal.cook_id).user_id).name }
     end
-    custom_orders.to_a.reverse.to_h
   end
 
   def cook_proposals
@@ -26,14 +24,13 @@ class DashboardViewObject
   def cook_orders_hash
     cook_proposals_ids = @current_user.cook.proposals.map(&:id)
     cook_orders = CustomOrder.all_orders_for_cook(cook_proposals_ids)
-    orders = {}
-    cook_orders.each do |order|
-      orders[order.id] = { proposal:  proposal.decorate.dish_name,
-                           quantity: order.quantity,
-                           receive_date: order.receive_date.strftime('%d/%m/%Y %H:%M'),
-                           user: User.find(order.user_id).name }
+    cook_orders.reverse.each_with_object({}) do |order, hsh|
+      proposal = Proposal.find(order.proposal_id)
+      hsh[order.id] = { proposal: proposal.decorate.dish_name,
+                        quantity: order.quantity,
+                        receive_date: order.receive_date.strftime('%d/%m/%Y %H:%M'),
+                        user: User.find(order.user_id).name }
     end
-    orders.to_a.reverse.to_h
   end
 
   def cook_dishes
