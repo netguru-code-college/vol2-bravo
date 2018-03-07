@@ -1,7 +1,7 @@
 .container-fluid.p-4
   .row
     .col-md-4
-      %h1 Profil kucharza:
+      %h1= t('.header')
       %br
       %ul.list-group
         %li.list-group-item
@@ -11,18 +11,18 @@
           %span.font-weight-bold Email:
           = @cook.user.email
         %li.list-group-item
-          %span.font-weight-bold Specjalność:
+          %span.font-weight-bold= t('speciality')
           = @cook.speciality
         %li.list-group-item
-          %span.font-weight-bold Pracuje w:
+          %span.font-weight-bold= t('.work_in')
           = @cook.work_city
-          %span.font-weight-bold dla:
+          %span.font-weight-bold= t('.for')
           %ul.list-group.list-group-flush
             - @cook.organizations.each do |organization|
               =link_to organization_path(organization.id) do
                 %li.list-group-item.list-group-item-action.text-center= organization.name
         %li.list-group-item
-          %span.font-weight-bold Ocena:
+          %span.font-weight-bold= t('.grade')
           = @cook.stars
 
-      = link_to "Edytuj profil kucharza", edit_user_cook_path(@cook.user, @cook),class: "btn btn-info ml-0"
+      = link_to t('.edit_cook_profile'), edit_user_cook_path(@cook.user, @cook),class: "btn btn-info ml-0"

@@ -3,12 +3,12 @@
     %li.nav-item
       %a.nav-link.active{"data-toggle" => "tab", :href => "#user", :role => "tab"}
         %i.ion-android-person.mr-2
-        Użytkownik
+        = t('user')
     - if current_user.cook
       %li.nav-item
         %a.nav-link{"data-toggle" => "tab", :href => "#cook", :role => "tab"}
           %i.ion-android-restaurant.mr-2
-          Kucharz
+          = t('cook')
   .tab-content
     #user.tab-pane.fade.in.active.show{:role => "tabpanel"}
       .container--user_view

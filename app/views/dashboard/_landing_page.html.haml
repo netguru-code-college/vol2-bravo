@@ -5,6 +5,6 @@
       Żur
       %span.c-green NOW
   %section.flex
-    %h1 Ugotowałeś za dużo?
-    %h2.c-green Podziel się!
-    =link_to 'Zarejestruj się!', new_user_registration_path, class: 'btn btn-info p-3'
+    %h1= t('motto')
+    %h2.c-green= t('motto_lower')
+    = link_to t('sign_up'), new_user_registration_path, class: 'btn btn-info p-3'

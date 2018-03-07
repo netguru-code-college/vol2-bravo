@@ -1,12 +1,12 @@
 .form-container
-  %h2 Zostań kucharzem
+  %h2= t('.header')
   = form_for(@cook, url: { controller: 'cooks', action: 'create'}, html: { method: 'post' } ) do |f|
     = render 'shared/error_messages', object: f.object
     .field.form-group
-      = f.label :speciality, "Specjalność"
+      = f.label :speciality, t('speciality')
       = f.text_field :speciality, class: 'form-control'
     .field.form-group
-      = f.label :work_city, "Miasto pracy"
+      = f.label :work_city, t('work_city')
       = f.text_field :work_city, class: 'form-control'
     .field.form-group
-      = f.submit "Chcę zostać Masterchefem", class: "btn btn-dark"
+      = f.submit t('.submit'), class: "btn btn-dark"

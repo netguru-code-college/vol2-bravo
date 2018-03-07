@@ -1,7 +1,7 @@
 .container_header
-  %span.latest_orders Moje dania:
+  %span.latest_orders= t('.my_dishes')
 .text-center
-  = link_to "Dodaj nowe danie", new_cook_dish_path(current_user.cook), class: "btn btn-info m-2"
+  = link_to t('.add_new'), new_cook_dish_path(current_user.cook), class: "btn btn-info m-2"
 .container--scroll
   - @dashboard.cook_dishes.each do |dish|
     .card.m-2

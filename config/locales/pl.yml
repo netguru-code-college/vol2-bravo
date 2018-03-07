@@ -1,0 +1,102 @@
+pl:
+  motto: "Ugotowałeś za dużo?"
+  motto_lower: "Podziel się!" 
+  sign_up: "Zarejestruj się"
+  log_in: "Zaloguj się"
+  log_out: "Wyloguj"
+  list_of_organizations: "Lista organizacji"
+  price: "Cena:"
+  quantity: "Ilość:"
+  organization: "Organizacja:"
+  user: "Użytkownik"
+  cook: "Kucharz"
+  active_proposals: "Aktywne oferty:"
+  receive_date: "Data odbioru:"
+  latest_orders: "Ostatnie zamówienia:"
+  proposal: "Oferta:"
+  make_order: "Zamawiam"
+  speciality: "Specjalność"
+  work_city: "Miasto pracy"
+  name: "Imię:"
+  last_name: "Nazwisko:"
+  live_city: "Miasto zamieszkania:"
+  interesting_city: "Miasto zainteresowania:"
+  expiration_date: "Data ważności:"
+  follow: "Obserwuj"
+  unfollow: "Przestań obserwować"
+  join: "Dołącz do organizacji"
+  exit: "Wyjdź z organizacji"
+
+  dashboard:
+    index:
+      become_a_cook: "Zostań kucharzem"
+      create_an_organization: "+ Załóż organizację"
+      my_cook_profile: "Mój profil kucharza"
+    following_activity:
+      order: "Zamów"
+    cook_orders:
+      who_order: "Kto zamówił:"
+    dishes:
+      my_dishes: "Moje dania:"
+      add_new: "Dodaj nowe danie"
+
+  cooks:
+    edit:
+      header: "Edytuj profil kucharza"
+      save_changes: "Zapisz zmiany"
+      delete_cook_profile: "Usuń profil kucharza"
+      sure: "Na pewno? Wszystkie Twoje oferty i dania zostaną usunięte!"
+    new:
+      header: "Zostań kucharzem"
+      submit: "Chcę zostać Masterchefem"
+    show:
+      header: "Profil kucharza"
+      work_in: "Pracuje w:"
+      for: "dla"
+      grade: "Ocena:"
+      edit_cook_profile: "Edytuj profil kucharza"
+
+  users:
+    edit:
+      header: "Uzupełnij swój profil"
+      save: "Zapisz!"
+      delete_profile: "Usuń konto!"
+      sure: "Na pewno chcesz to zrobić?"
+
+  proposals:
+    new:
+      your_dishes: "Twoje dania"
+      no_dishes_yet: "Nie masz jeszcze żadnych dań"
+      create: "Utwórz"
+    edit:
+      your_dishes: "Twoje dania"
+      no_dishes_yet: "Nie masz jeszcze żadnych dań"
+      edit: "Edytuj"
+      delete: "Usuń"
+    new_proposal_button:
+      create_an_offer: "Stwórz ofertę"
+
+  organizations:
+    new:
+      header: "Stwórz nową organizację"
+      name: "Nazwa"
+      city: "Miasto"
+      description: "Opis"
+      create: "Utwórz!"
+    show:
+      header: "Profil organizacji"
+      name: "Nazwa organizacji:"
+      city: "Miasto:"
+      description: "Opis:"
+    edit:
+      header: "Edytuj profil organizacji"
+      save_changes: "Zapisz zmiany"
+      delete_organization: "Usuń organizację"
+      sure: "Na pewno chcesz to zrobić?"
+      name: "Nazwa"
+      city: "Miasto"
+      description: "Opis"
+    index:
+      name: "Nazwa"
+      city: "Miasto"
+      description: "Opis"

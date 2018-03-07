@@ -1,7 +1,7 @@
 - @dashboard.followed_organizations.each do |organization|
   .container
     %h1
-      Organizacja:
+      = t('organization')
       = organization.name
     - organization.proposals.each do |proposal|
       .card.proposals_card
@@ -13,9 +13,9 @@
                 %i.ion-android-stopwatch
                 %span=proposal.decorate.expiration_date
             %li.proposals_card__price
-              %span.proposals_card__label Ilość:
+              %span.proposals_card__label= t('quantity')
               %span.mr-1=proposal.quantity
-              %span.proposals_card__label Cena:
+              %span.proposals_card__label= t('price')
               %span.proposals_card__dish_price=proposal.price
               .row.m-0.d-flex.justify-content-end
-                = link_to 'Zamów', custom_order_path(proposal), class: 'btn btn-info w-25 m-0'
+                = link_to t('.order'), custom_order_path(proposal), class: 'btn btn-info w-25 m-0'

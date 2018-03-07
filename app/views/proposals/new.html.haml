@@ -1,18 +1,18 @@
 .form-container
   = form_for([@organization, @proposal], url: { controller: 'proposals', action: 'create'}) do |f|
     .form-group
-      = f.label(:price, "Cena: ", class: 'col-form-label')
+      = f.label(:price, t('price'), class: 'col-form-label')
       = f.text_field :price, class: 'form-control'
     .form-group
-      = f.label(:expiration_date, "Data ważności: ", class: 'col-form-label')
+      = f.label(:expiration_date, t('expiration_date'), class: 'col-form-label')
       = f.text_field :expiration_date, class: 'form-control', type: 'datetime-local'
     .form-group
-      = f.label(:quantity, "Porcje: ", class: 'col-form-label')
+      = f.label(:quantity, t('quantity'), class: 'col-form-label')
       = f.text_field :quantity, class: 'form-control'
       - if @dishes.present? then
         .form-group
-          = f.label(:quantity, "Twoje dania: ", class: 'col-form-label')
+          = f.label(:quantity, t('.your_dishes'), class: 'col-form-label')
           = f.select(:dish_id, @dishes, {}, { class: 'form-control' })
       - else
-        %span Nie masz jeszcze żadnych dań
-      = f.submit "Utwórz", class: "btn btn-success"
+        %span= t('.no_dishes_yet')
+      = f.submit t('.create'), class: "btn btn-success"

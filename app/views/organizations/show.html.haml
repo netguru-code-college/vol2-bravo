@@ -1,16 +1,16 @@
 .container-fluid.p-4
   .row
     .col-md-4
-      %h1 Profil organizacji:
+      %h1= t('.header')
       %ul.list-group
         %li.list-group-item
-          Nazwa organizacji:
+          = t('.name')
           = @organization.name
         %li.list-group-item
-          Miasto:
+          = t('.city')
           = @organization.city
         %li.list-group-item
-          Opis:
+          = t('.description')
           = @organization.description
     .col-md-8
       = render 'organizations/follow_form', object: @organization if current_user
@@ -18,5 +18,4 @@
         = render 'organizations/join_form', object: @organization
         #new-proposal-button
           - if current_user.cook.member?(@organization)
-            = link_to "Stwórz ofertę", new_organization_proposal_path(@organization),
-                                       class: 'btn btn-info', id: 'create-proposal'
+            = render 'proposals/new_proposal_button'

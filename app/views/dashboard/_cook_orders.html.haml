@@ -1,14 +1,14 @@
 .container_header
-  %span.latest_orders Ostatnie zamównienia:
+  %span.latest_orders= t('latest_orders')
 .container_orders.container--scroll
   %ul.list-group
     -@dashboard.cook_orders_hash.each do |_, order|
       %li.list-group-item.mb-2
-        %span.font-weight-bold Oferta:
+        %span.font-weight-bold= t('proposal')
         %span.m-1= order[:proposal]
-        %span.font-weight-bold Ilość:
+        %span.font-weight-bold= t('quantity')
         %span.m-1= order[:quantity]
-        %span.font-weight-bold Data odbioru:
+        %span.font-weight-bold= t('receive_date')
         %span.m-1= order[:receive_date]
-        %span.font-weight-bold Kto zamówił:
+        %span.font-weight-bold= t('.who_order')
         %span.m-1= order[:user]

@@ -2,9 +2,9 @@
   %table.table.table-hover.table-dark
     %thead
       %tr
-        %th Nazwa:
-        %th Miasto:
-        %th Opis:
+        %th= t('.name')
+        %th= t('.city')
+        %th= t('.description')
     %tbody
       - @organizations.each do |organization|
         %tr

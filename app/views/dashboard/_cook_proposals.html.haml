@@ -1,9 +1,9 @@
 .container_header
-  %span.latest_orders Aktywne oferty:
+  %span.latest_orders= t('active_proposals')
 .container--scroll
   - @dashboard.cook_proposals.each do |id, proposals|
     %h3
-      Organizacja:
+      = t('organization')
       = Organization.find(id).name
     .container.proposal_group
       - proposals.each do |proposal|
@@ -16,7 +16,7 @@
                   %i.ion-android-stopwatch
                   %span=proposal.decorate.expiration_date
               %li.proposals_card__price
-                %span.proposals_card__label Ilość:
+                %span.proposals_card__label= t('quantity')
                 %span.mr-1=proposal.quantity
-                %span.proposals_card__label Cena:
+                %span.proposals_card__label= t('price')
                 %span.proposals_card__dish_price=proposal.price

@@ -1,17 +1,15 @@
 .form-container
-  %h2 Stwórz nową organizację:
+  %h2= t('.header')
   = form_for(@organization) do |f|
     = render 'shared/error_messages', object: f.object
     .field.form-group
-      = f.label :name, "Nazwa: "
+      = f.label :name, t('.name')
       = f.text_field :name, class: 'form-control'
     .field.form-group
-      = f.label :city, "Miasto: "
+      = f.label :city, t('.city')
       = f.text_field :city, class: 'form-control'
     .field.form-group
-      = f.label :description, "Opis: "
+      = f.label :description, t('.description')
       = f.text_field :description, class: 'form-control'
     .field.form-group
-      = f.submit "Utwórz", class: "btn btn-success"
-//  = link_to "Delete organization", @organization, method: :delete,
-//  data: { confirm: "Are you sure?"}, class: "btn btn-danger"
+      = f.submit t('.create'), class: "btn btn-success"
