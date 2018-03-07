@@ -1,11 +1,11 @@
 - if user_signed_in?
   .row
     .col
-      = link_to " + Załóż organizację", new_organization_path, class: "btn btn-info float-right"
+      = link_to t('.create_an_organization'), new_organization_path, class: "btn btn-info float-right"
       - unless current_user.cook
-        = link_to "Zostań kucharzem", new_user_cook_path(current_user), class: "btn btn-info float-right"
+        = link_to t('.become_a_cook'), new_user_cook_path(current_user), class: "btn btn-info float-right"
       - else
-        = link_to "Mój profil kucharza", user_cook_path(current_user, current_user.cook), class: "btn btn-info float-right"
+        = link_to t('.my_cook_profile'), user_cook_path(current_user, current_user.cook), class: "btn btn-info float-right"
   = render 'tabs'
 - else
   = render 'landing_page'

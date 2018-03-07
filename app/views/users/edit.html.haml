@@ -1,21 +1,21 @@
 .form-container
-  %h2 Zaktualizuj swój profil
+  %h2= t('.header')
   = form_for(@user) do |f|
     = render 'shared/error_messages', object: f.object
     .field.form-group
-      = f.label :name, "Imię"
+      = f.label :name, t('name')
       = f.text_field :name, class: 'form-control'
     .field.form-group
-      = f.label :last_name, "Nazwisko"
+      = f.label :last_name, t('last_name')
       = f.text_field :last_name, class: 'form-control'
     .field.form-group
-      = f.label :live_city, "Miasto zamieszkania"
+      = f.label :live_city, t('live_city')
       = f.text_field :live_city, class: 'form-control'
     .field.form-group
-      = f.label :interesting_city, "Miasto zainteresowania"
+      = f.label :interesting_city, t('interesting_city')
       = f.text_field :interesting_city, class: 'form-control'
     .field.form-group
-      = f.submit "Zapisz!", class: "btn btn-dark"
+      = f.submit t('.save'), class: "btn btn-dark"
   
-  = link_to "Usuń profil", @user, method: :delete, 
-  data: { confirm: "Na pewno chcesz to zrobić?"}, class: "btn btn-danger"
+  = link_to t('.delete_profile'), @user, method: :delete, 
+  data: { confirm: t('.sure')}, class: "btn btn-danger"

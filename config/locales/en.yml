@@ -1,33 +1,102 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  motto: "Have you cooked to much?"
+  motto_lower: "Share!"
+  sign_up: "Sign up"
+  log_in: "Log in"
+  log_out: "Log out"
+  list_of_organizations: "List of organizations"
+  price: "Price:"
+  quantity: "Quantity:"
+  organization: "Organization:"
+  user: "User"
+  cook: "Cook"
+  active_proposals: "Active proposals:"
+  receive_date: "Receive date:"
+  latest_orders: "Latest orders:"
+  proposal: "Proposal:"
+  make_order: "Order"
+  speciality: "Speciality:"
+  work_city: "Work city:"
+  name: "Name:"
+  last_name: "Last name:"
+  live_city: "Live city:"
+  interesting_city: "Interesting city:"
+  expiration_date: "Expiration date:"
+  follow: "Follow"
+  unfollow: "Unfollow"
+  join: "Join the organization"
+  exit: "Exit the organization"
+
+  dashboard:
+    index:
+      become_a_cook: "Become a cook"
+      create_an_organization: "+ Create an organization"
+      my_cook_profile: "My cook profile"
+    following_activity:
+      order: "Make an order"
+    cook_orders:
+      who_order: "Who order:"
+    dishes:
+      my_dishes: "My dishes:"
+      add_new: "Add new dish"
+
+  cooks:
+    edit:
+      header: "Edit my cook profile"
+      save_changes: "Save changes"
+      delete_cook_profile: "Delete my cook profile"
+      sure: "Are you sure? All your proposals and dishes will be deleted!"
+    new:
+      header: "Become a cook"
+      submit: "I want to be a Masterchef"
+    show:
+      header: "Cook's profile"
+      work_in: "Work in:"
+      for: "for"
+      grade: "Rating:"
+      edit_cook_profile: "Edit my cook profile"
+
+  users:
+    edit:
+      header: "Fill in your profile informations"
+      save: "Save!"
+      delete_profile: "Delete your account!"
+      sure: "Are you sure?"
+
+  proposals:
+    new:
+      your_dishes: "Your dishes"
+      no_dishes_yet: "You have no dishes"
+      create: "Create"
+    edit:
+      your_dishes: "Your dishes"
+      no_dishes_yet: "You have no dishes"
+      edit: "Edit"
+      delete: "Delete"
+    new_proposal_button:
+      create_an_offer: "Create an offer"
+
+  organizations:
+    new:
+      header: "Create a new organization"
+      name: "Name"
+      city: "City"
+      description: "Description"
+      create: "Create!"
+    show:
+      header: "Organization's profile"
+      name: "Name of the organization:"
+      city: "City:"
+      description: "Description:"
+    edit:
+      header: "Update organization profile"
+      save_changes: "Save changes"
+      delete_organization: "Delete the organization"
+      sure: "Are you sure?"
+      name: "Name"
+      city: "City"
+      description: "Description"
+    index:
+      name: "Name"
+      city: "City"
+      description: "Description"

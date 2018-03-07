@@ -1,13 +1,13 @@
 .container_header
-  %span.latest_orders Ostatnie zamównienia:
+  %span.latest_orders= t('latest_orders')
 .container_orders.container--scroll
   %ul.list-group
     -@dashboard.custom_orders_hash.each do |_, order|
       %li.list-group-item.mb-2
         %h2.m-1= order[:proposal]
-        %span.font-weight-bold Ilość:
+        %span.font-weight-bold= t('quantity')
         %span.m-1= order[:quantity]
-        %span.font-weight-bold Kucharz:
+        %span.font-weight-bold= t('cook')
         %span.m-1= order[:cook]
         %span.m-1.float-right= order[:receive_date]
-        %span.m-1.font-weight-bold.float-right Data odbioru:
+        %span.m-1.font-weight-bold.float-right= t('receive_date')

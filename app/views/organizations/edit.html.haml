@@ -1,21 +1,18 @@
 .form-container
-  %h2 Update your organization profile
+  %h2= t('.header')
   = form_for(@organization) do |f|
     = render 'shared/error_messages', object: f.object
     .field.form-group
-      = f.label :name
+      = f.label :name, t('.name')
       = f.text_field :name, class: 'form-control'
     .field.form-group
-      = f.label :city
+      = f.label :city, t('.city')
       = f.text_field :city, class: 'form-control'
     .field.form-group
-      = f.label :description
+      = f.label :description, t('.description')
       = f.text_field :description, class: 'form-control'
     .field.form-group
-      = f.label :private_type
-      = f.check_box :private_type
-    .field.form-group
-      = f.submit "Save changes", class: "btn btn-dark"
+      = f.submit t('.save_changes'), class: "btn btn-dark"
 
-  = link_to "Delete organization", @organization, method: :delete,
-  data: { confirm: "Are you sure?"}, class: "btn btn-danger"
+  = link_to t('.delete_organization'), @organization, method: :delete,
+  data: { confirm: t('.sure') }, class: "btn btn-danger"
